@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+/* Class-based dark mode driven by a `dark` class on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Centralized design tokens. Values are tuned in Phase 2 (design direction);
+ * components consume the semantic `--color-*` utilities only.
+ */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #5b6472;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+  --accent-foreground: #ffffff;
+  --ring: #6366f1;
+}
+
+.dark {
+  --background: #0b0d12;
+  --foreground: #e6e8ee;
+  --muted: #161922;
+  --muted-foreground: #9aa3b2;
+  --card: #11141b;
+  --border: #232733;
+  --accent: #818cf8;
+  --accent-foreground: #0b0d12;
+  --ring: #818cf8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
+
+  --font-sans:
+    system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
