@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
+import { Hero } from '@/components/sections/Hero'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { I18nProvider } from '@/features/i18n/I18nProvider'
 import { ThemeProvider } from '@/features/theme/ThemeProvider'
@@ -17,8 +18,9 @@ function Shell() {
       </a>
       <div className="flex min-h-svh flex-col">
         <Header />
-        {/* Portfolio sections are added in later phases. */}
-        <main id="main" className="flex-1" />
+        <main id="main" className="flex-1">
+          <Hero />
+        </main>
         <Footer />
       </div>
     </>

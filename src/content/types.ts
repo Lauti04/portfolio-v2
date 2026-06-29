@@ -15,4 +15,13 @@ export interface Dictionary {
   language: {
     label: string
   }
+  hero: {
+    name: string
+    eyebrow: string
+    headline: string
+    status: string
+    subline: string
+    viewWork: string
+    downloadCv: string
+  }
 }
