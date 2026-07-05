@@ -1,6 +1,7 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { Hero } from '@/components/sections/Hero'
+import { ProfileSnapshot } from '@/components/sections/ProfileSnapshot'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { I18nProvider } from '@/features/i18n/I18nProvider'
 import { ThemeProvider } from '@/features/theme/ThemeProvider'
@@ -20,6 +21,7 @@ function Shell() {
         <Header />
         <main id="main" className="flex-1">
           <Hero />
+          <ProfileSnapshot />
         </main>
         <Footer />
       </div>

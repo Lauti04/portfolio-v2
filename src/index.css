@@ -83,3 +83,32 @@
     }
   }
 }
+
+@layer components {
+  /*
+   * Underline that grows in via scaleX (not width) on hover/focus, instead of
+   * a static underline. Reduced motion is handled by the global transition
+   * override above, which collapses the transition duration to ~0.
+   */
+  .link-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease-out;
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+}

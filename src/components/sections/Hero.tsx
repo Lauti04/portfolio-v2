@@ -2,9 +2,15 @@ import type { RefObject } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
+import type { Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { useTheme } from '@/features/theme/theme-context'
 import { useCursorGlow } from './useCursorGlow'
+
+const CV_FILES: Record<Locale, string> = {
+  es: '/cv/lautaro-johnston-cv-es.pdf',
+  en: '/cv/lautaro-johnston-cv-en.pdf',
+}
 
 /** Accent pill announcing current availability, with a reduced-motion-aware pulse. */
 function StatusChip({ label }: { label: string }) {
@@ -58,7 +64,7 @@ function HeroGlow({
 }
 
 export function Hero() {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const { theme } = useTheme()
   const { containerRef, glowRef, isInteractive } = useCursorGlow<HTMLElement>()
 
@@ -92,9 +98,14 @@ export function Hero() {
             <Button href="#projects" size="md" variant="primary">
               {t.hero.viewWork}
             </Button>
-            {/* TODO: replace with the real CV file once it's added to public/cv */}
-            <Button href="#" size="md" variant="outline">
-              {t.hero.downloadCv}
+            <Button
+              href={CV_FILES[locale]}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="md"
+              variant="outline"
+            >
+              {t.hero.viewCv}
             </Button>
           </div>
         </div>

@@ -16,12 +16,40 @@ export interface Dictionary {
     label: string
   }
   hero: {
-    name: string
     eyebrow: string
     headline: string
     status: string
     subline: string
     viewWork: string
-    downloadCv: string
+    viewCv: string
+    cvLabel: string
+    cvPreview: string
+    cvDownload: string
+  }
+  profile: {
+    heading: string
+    about: string
+    roleLabel: string
+    roleValue: string
+    educationLabel: string
+    educationValue: string
+    languagesLabel: string
+    languagesValue: string
+    stackLabel: string
+    connectLabel: string
+    contactModal: {
+      heading: string
+      explain: string
+      nameLabel: string
+      namePlaceholder: string
+      emailLabel: string
+      emailPlaceholder: string
+      messageLabel: string
+      messagePlaceholder: string
+      send: string
+      close: string
+      whatsappCta: string
+      subjectTemplate: string
+    }
   }
 }
