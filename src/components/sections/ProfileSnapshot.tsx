@@ -1,6 +1,6 @@
 import {
   IconBrandGithub,
-  IconBrandLinkedin,
+  IconBrandLinkedinFilled,
   IconBrandWhatsapp,
   IconBriefcase,
   IconDownload,
@@ -296,7 +296,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconBrandLinkedin size={18} className="shrink-0" />
+            <IconBrandLinkedinFilled size={16} className="shrink-0" />
             LinkedIn
           </a>
           <a
