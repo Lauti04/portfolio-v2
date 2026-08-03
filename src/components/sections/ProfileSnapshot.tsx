@@ -1,4 +1,17 @@
 import {
+  IconBrandGithubFilled,
+  IconBrandLinkedinFilled,
+  IconBrandWhatsappFilled,
+  IconBriefcase,
+  IconDownload,
+  IconEye,
+  IconLanguage,
+  IconMail,
+  IconSchool,
+  IconStack2,
+  IconX,
+} from '@tabler/icons-react'
+import {
   useEffect,
   useId,
   useRef,
@@ -39,130 +52,6 @@ const WHATSAPP_URL = 'https://wa.me/34608948328'
 
 const linkClasses =
   'link-underline inline-flex items-center gap-1.5 text-sm text-foreground'
-
-/** Shared stroke style for the small outline icons used across this section. */
-function iconProps(className: string) {
-  return {
-    'aria-hidden': true,
-    viewBox: '0 0 24 24',
-    className,
-    fill: 'none',
-    stroke: 'currentColor',
-    strokeWidth: 2,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-  }
-}
-
-function IconMail() {
-  return (
-    <svg {...iconProps('h-4 w-4 shrink-0')}>
-      <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-      <path d="M3 7l9 6l9 -6" />
-    </svg>
-  )
-}
-
-function IconDownload() {
-  return (
-    <svg {...iconProps('h-4 w-4 shrink-0')}>
-      <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-      <path d="M7 11l5 5l5 -5" />
-      <path d="M12 4l0 12" />
-    </svg>
-  )
-}
-
-function IconClose() {
-  return (
-    <svg {...iconProps('h-4 w-4')}>
-      <path d="M18 6l-12 12" />
-      <path d="M6 6l12 12" />
-    </svg>
-  )
-}
-
-/** Eye glyph (stroke style) used for the CV Preview quick link. */
-function IconEye() {
-  return (
-    <svg {...iconProps('h-4 w-4 shrink-0')}>
-      <path d="M2 12s3.5 -6 10 -6s10 6 10 6s-3.5 6 -10 6s-10 -6 -10 -6z" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
-  )
-}
-
-/** Brand marks render filled, matching how outline icon sets typically treat logos. */
-function IconWhatsapp() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="currentColor">
-      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95l-1.45 5.14l5.26 -1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.46 0 9.9 -4.45 9.9 -9.91c0 -2.65 -1.03 -5.14 -2.9 -7.01a9.82 9.82 0 0 0 -7.01 -2.92zm0 18.15h-.01a8.2 8.2 0 0 1 -4.19 -1.15l-.3 -.18l-3.12 .82l.83 -3.04l-.2 -.31a8.2 8.2 0 0 1 -1.25 -4.38c0 -4.54 3.7 -8.23 8.25 -8.23c2.2 0 4.27 .86 5.83 2.42a8.17 8.17 0 0 1 2.41 5.82c0 4.54 -3.7 8.23 -8.25 8.23zm4.52 -6.16c-.25 -.12 -1.47 -.72 -1.69 -.81c-.23 -.08 -.39 -.12 -.56 .12c-.17 .25 -.64 .81 -.78 .97c-.14 .17 -.29 .19 -.53 .06c-.25 -.12 -1.05 -.39 -1.99 -1.23c-.74 -.66 -1.23 -1.47 -1.38 -1.72c-.14 -.25 -.02 -.38 .11 -.5c.11 -.11 .25 -.29 .37 -.43c.12 -.14 .17 -.25 .25 -.41c.08 -.17 .04 -.31 -.02 -.43c-.06 -.12 -.56 -1.34 -.76 -1.84c-.2 -.48 -.41 -.42 -.56 -.42h-.48c-.17 0 -.43 .06 -.66 .31c-.22 .25 -.86 .84 -.86 2.04c0 1.2 .88 2.37 1 2.53c.12 .17 1.74 2.66 4.22 3.73c.59 .25 1.05 .41 1.41 .52c.59 .19 1.13 .16 1.56 .1c.48 -.07 1.47 -.6 1.67 -1.18c.21 -.58 .21 -1.07 .15 -1.18c-.06 -.1 -.23 -.17 -.48 -.29z" />
-    </svg>
-  )
-}
-function IconLinkedin() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
-      fill="currentColor"
-    >
-      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2zM8.34 18.5v-8.5h-2.67v8.5zM7 8.6a1.53 1.53 0 1 0 0 -3.06a1.53 1.53 0 0 0 0 3.06zM18.5 18.5v-4.7c0 -2.5 -1.33 -3.67 -3.1 -3.67c-1.43 0 -2.06 .79 -2.42 1.34v-1.15h-2.68c.03 .7 0 8.5 0 8.5h2.68v-4.75c0 -.25 .02 -.5 .1 -.68c.2 -.5 .66 -1.03 1.44 -1.03c1.02 0 1.43 .78 1.43 1.92v4.54z" />
-    </svg>
-  )
-}
-
-function IconGithub() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
-      fill="currentColor"
-    >
-      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026a9.564 9.564 0 0 1 2.504-.337c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.417-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-    </svg>
-  )
-}
-
-function IconBriefcase() {
-  return (
-    <svg {...iconProps('h-3.5 w-3.5 shrink-0')}>
-      <rect x="3" y="7" width="18" height="13" rx="2" />
-      <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-      <line x1="3" y1="13" x2="21" y2="13" />
-    </svg>
-  )
-}
-
-function IconSchool() {
-  return (
-    <svg {...iconProps('h-3.5 w-3.5 shrink-0')}>
-      <path d="M12 4l10 5l-10 5l-10 -5z" />
-      <path d="M6 11v4a6 3 0 0 0 12 0v-4" />
-    </svg>
-  )
-}
-
-function IconLanguage() {
-  return (
-    <svg {...iconProps('h-3.5 w-3.5 shrink-0')}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M3 12h18" />
-      <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0 -18" />
-    </svg>
-  )
-}
-
-function IconStack() {
-  return (
-    <svg {...iconProps('h-3.5 w-3.5 shrink-0')}>
-      <path d="M12 3l9 5l-9 5l-9 -5z" />
-      <path d="M3 13l9 5l9 -5" />
-    </svg>
-  )
-}
 
 /** One label/value pair in the metadata grid, with a mono uppercase label. */
 function SnapshotField({
@@ -292,7 +181,7 @@ function ContactModal({
             aria-label={labels.close}
             className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
-            <IconClose />
+            <IconX size={16} />
           </button>
         </div>
 
@@ -342,7 +231,7 @@ function ContactModal({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconWhatsapp />
+            <IconBrandWhatsappFilled size={16} className="shrink-0" />
             {labels.whatsappCta}
           </a>
         </div>
@@ -389,7 +278,7 @@ function QuickLinks({
             onClick={() => setIsContactOpen(true)}
             className={cn(linkClasses, 'cursor-pointer border-0 bg-transparent p-0')}
           >
-            <IconMail />
+            <IconMail size={16} className="shrink-0" />
             Email
           </button>
           <a
@@ -398,7 +287,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconWhatsapp />
+            <IconBrandWhatsappFilled size={16} className="shrink-0" />
             WhatsApp
           </a>
           <a
@@ -407,7 +296,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconLinkedin />
+            <IconBrandLinkedinFilled size={16} className="shrink-0" />
             LinkedIn
           </a>
           <a
@@ -416,7 +305,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconGithub />
+            <IconBrandGithubFilled size={16} className="shrink-0" />
             GitHub
           </a>
         </div>
@@ -433,11 +322,11 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconEye />
+            <IconEye size={16} className="shrink-0" />
             {cvPreviewLabel}
           </a>
           <a href={cvHref} download className={linkClasses}>
-            <IconDownload />
+            <IconDownload size={16} className="shrink-0" />
             {cvDownloadLabel}
           </a>
         </div>
@@ -481,16 +370,28 @@ export function ProfileSnapshot() {
           </div>
 
           <div className="grid grid-cols-1 divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:border-l md:border-t-0">
-            <SnapshotField icon={<IconBriefcase />} label={t.profile.roleLabel}>
+            <SnapshotField
+              icon={<IconBriefcase size={14} className="shrink-0" />}
+              label={t.profile.roleLabel}
+            >
               {t.profile.roleValue}
             </SnapshotField>
-            <SnapshotField icon={<IconSchool />} label={t.profile.educationLabel}>
+            <SnapshotField
+              icon={<IconSchool size={14} className="shrink-0" />}
+              label={t.profile.educationLabel}
+            >
               {t.profile.educationValue}
             </SnapshotField>
-            <SnapshotField icon={<IconLanguage />} label={t.profile.languagesLabel}>
+            <SnapshotField
+              icon={<IconLanguage size={14} className="shrink-0" />}
+              label={t.profile.languagesLabel}
+            >
               {t.profile.languagesValue}
             </SnapshotField>
-            <SnapshotField icon={<IconStack />} label={t.profile.stackLabel}>
+            <SnapshotField
+              icon={<IconStack2 size={14} className="shrink-0" />}
+              label={t.profile.stackLabel}
+            >
               <div className="flex flex-wrap gap-2">
                 {STACK.map((item) => (
                   <span
