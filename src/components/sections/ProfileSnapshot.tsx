@@ -1,7 +1,7 @@
 import {
-  IconBrandGithubFilled,
-  IconBrandLinkedinFilled,
-  IconBrandWhatsappFilled,
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandWhatsapp,
   IconBriefcase,
   IconDownload,
   IconEye,
@@ -231,7 +231,7 @@ function ContactModal({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconBrandWhatsappFilled size={16} className="shrink-0" />
+            <IconBrandWhatsapp size={18} className="shrink-0" />
             {labels.whatsappCta}
           </a>
         </div>
@@ -278,7 +278,7 @@ function QuickLinks({
             onClick={() => setIsContactOpen(true)}
             className={cn(linkClasses, 'cursor-pointer border-0 bg-transparent p-0')}
           >
-            <IconMail size={16} className="shrink-0" />
+            <IconMail size={18} className="shrink-0" />
             Email
           </button>
           <a
@@ -287,7 +287,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconBrandWhatsappFilled size={16} className="shrink-0" />
+            <IconBrandWhatsapp size={18} className="shrink-0" />
             WhatsApp
           </a>
           <a
@@ -296,7 +296,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconBrandLinkedinFilled size={16} className="shrink-0" />
+            <IconBrandLinkedin size={18} className="shrink-0" />
             LinkedIn
           </a>
           <a
@@ -305,7 +305,7 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconBrandGithubFilled size={16} className="shrink-0" />
+            <IconBrandGithub size={18} className="shrink-0" />
             GitHub
           </a>
         </div>
@@ -322,11 +322,11 @@ function QuickLinks({
             rel="noopener noreferrer"
             className={linkClasses}
           >
-            <IconEye size={16} className="shrink-0" />
+            <IconEye size={18} className="shrink-0" />
             {cvPreviewLabel}
           </a>
           <a href={cvHref} download className={linkClasses}>
-            <IconDownload size={16} className="shrink-0" />
+            <IconDownload size={18} className="shrink-0" />
             {cvDownloadLabel}
           </a>
         </div>
@@ -371,25 +371,25 @@ export function ProfileSnapshot() {
 
           <div className="grid grid-cols-1 divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:border-l md:border-t-0">
             <SnapshotField
-              icon={<IconBriefcase size={14} className="shrink-0" />}
+              icon={<IconBriefcase size={16} className="shrink-0" />}
               label={t.profile.roleLabel}
             >
               {t.profile.roleValue}
             </SnapshotField>
             <SnapshotField
-              icon={<IconSchool size={14} className="shrink-0" />}
+              icon={<IconSchool size={16} className="shrink-0" />}
               label={t.profile.educationLabel}
             >
               {t.profile.educationValue}
             </SnapshotField>
             <SnapshotField
-              icon={<IconLanguage size={14} className="shrink-0" />}
+              icon={<IconLanguage size={16} className="shrink-0" />}
               label={t.profile.languagesLabel}
             >
               {t.profile.languagesValue}
             </SnapshotField>
             <SnapshotField
-              icon={<IconStack2 size={14} className="shrink-0" />}
+              icon={<IconStack2 size={16} className="shrink-0" />}
               label={t.profile.stackLabel}
             >
               <div className="flex flex-wrap gap-2">
