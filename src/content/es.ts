@@ -76,4 +76,35 @@ export const es: Dictionary = {
       },
     ],
   },
+  projects: {
+    heading: 'Proyectos Seleccionados',
+    subheading: 'Una selección de proyectos full-stack, interfaces y experiencias web.',
+    viewCode: 'Ver código',
+    items: [
+      {
+        id: 'eventflow',
+        title: 'EventFlow',
+        description:
+          'Aplicación full-stack para gestionar eventos, tareas y recordatorios, con autenticación, calendario interactivo y distintas vistas de planificación.',
+      },
+      {
+        id: 'dulceEncanto',
+        title: 'Dulce Encanto',
+        description:
+          'Sitio web full-stack para una pastelería, con catálogo de productos y herramientas de administración, desarrollado con PHP, MySQL, Bootstrap y JavaScript.',
+      },
+      {
+        id: 'happyPaws',
+        title: 'Happy Paws',
+        description:
+          'Landing page frontend para servicios de mascotas, basada en una plantilla y adaptada con HTML, CSS y JavaScript. Incluye slider, galería, servicios, ofertas y contenido de adopción.',
+      },
+      {
+        id: 'malagaSupercars',
+        title: 'Malaga Supercars',
+        description:
+          'Proyecto académico full-stack de catálogo de vehículos, con filtros de búsqueda y persistencia en MySQL, desarrollado con HTML, CSS y PHP.',
+      },
+    ],
+  },
 }

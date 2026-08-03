@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header'
 import { Experience } from '@/components/sections/Experience'
 import { Hero } from '@/components/sections/Hero'
 import { ProfileSnapshot } from '@/components/sections/ProfileSnapshot'
+import { Projects } from '@/components/sections/Projects'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { I18nProvider } from '@/features/i18n/I18nProvider'
 import { ThemeProvider } from '@/features/theme/ThemeProvider'
@@ -24,6 +25,7 @@ function Shell() {
           <Hero />
           <ProfileSnapshot />
           <Experience />
+          <Projects />
         </main>
         <Footer />
       </div>

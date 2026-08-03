@@ -1,3 +1,10 @@
+/** Closed set of project ids — keeps dictionary items and PROJECT_META in sync. */
+export type ProjectId =
+  | 'eventflow'
+  | 'dulceEncanto'
+  | 'happyPaws'
+  | 'malagaSupercars'
+
 /**
  * Shape of a translation dictionary. Every locale must implement this, so a
  * missing key is a compile-time error. Portfolio content namespaces (hero,
@@ -61,6 +68,16 @@ export interface Dictionary {
       company: string
       location: string
       dateRange: string
+      description: string
+    }[]
+  }
+  projects: {
+    heading: string
+    subheading: string
+    viewCode: string
+    items: {
+      id: ProjectId
+      title: string
       description: string
     }[]
   }
