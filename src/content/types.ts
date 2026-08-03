@@ -52,4 +52,16 @@ export interface Dictionary {
       subjectTemplate: string
     }
   }
+  experience: {
+    heading: string
+    subheading: string
+    items: {
+      id: string
+      role: string
+      company: string
+      location: string
+      dateRange: string
+      description: string
+    }[]
+  }
 }

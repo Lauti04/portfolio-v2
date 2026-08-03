@@ -52,4 +52,28 @@ export const en: Dictionary = {
       subjectTemplate: 'Portfolio contact from {name}',
     },
   },
+  experience: {
+    heading: 'Experience',
+    subheading: "Where I've put this stack to work.",
+    items: [
+      {
+        id: 'vya',
+        role: 'Junior Full-Stack Developer',
+        company: 'VyA Projects',
+        location: 'Remote, Spain',
+        dateRange: 'Dec 2025 – Jun 2026',
+        description:
+          'Shipped and maintained features across several production web apps — interfaces, dark mode, reusable components, forms — through Jira and Git-based review workflows.',
+      },
+      {
+        id: 'universalTelecom',
+        role: 'Web Development Intern',
+        company: 'Universal Telecom',
+        location: 'Málaga, Spain',
+        dateRange: 'Mar 2025 – Jun 2025',
+        description:
+          "Rebuilt a corporate site's interface and calendar component, adding AJAX/Fetch-driven features and automated PHP reporting.",
+      },
+    ],
+  },
 }

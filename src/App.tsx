@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
+import { Experience } from '@/components/sections/Experience'
 import { Hero } from '@/components/sections/Hero'
 import { ProfileSnapshot } from '@/components/sections/ProfileSnapshot'
 import { useI18n } from '@/features/i18n/i18n-context'
@@ -22,6 +23,7 @@ function Shell() {
         <main id="main" className="flex-1">
           <Hero />
           <ProfileSnapshot />
+          <Experience />
         </main>
         <Footer />
       </div>
