@@ -21,7 +21,6 @@ const TONE_CLASSES: Record<TokenTone, string> = {
 
 /** A small, honest "whoami" snippet — real facts about Lautaro, not project code. */
 const CODE_LINES: CodeToken[][] = [
-  [{ text: '// Made in Córdoba, Argentina', tone: 'comment' }],
   [
     { text: 'const ', tone: 'keyword' },
     { text: 'developer', tone: 'plain' },
@@ -37,6 +36,12 @@ const CODE_LINES: CodeToken[][] = [
     { text: '  role', tone: 'key' },
     { text: ': ', tone: 'punct' },
     { text: '"Full-Stack Developer"', tone: 'string' },
+    { text: ',', tone: 'punct' },
+  ],
+  [
+    { text: '  bornIn', tone: 'key' },
+    { text: ': ', tone: 'punct' },
+    { text: '"Córdoba, Argentina"', tone: 'string' },
     { text: ',', tone: 'punct' },
   ],
   [
