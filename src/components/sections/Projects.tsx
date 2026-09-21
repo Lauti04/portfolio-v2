@@ -12,6 +12,7 @@ import {
 } from '@tabler/icons-react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
+import { Reveal } from '@/components/ui/Reveal'
 import { Section } from '@/components/ui/Section'
 import type { ProjectId } from '@/content/types'
 import { useI18n } from '@/features/i18n/i18n-context'
@@ -94,7 +95,7 @@ function ProjectCard({
   const meta = PROJECT_META[entry.id]
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[transform,border-color] duration-200 motion-safe:hover:-translate-y-1 hover:border-accent/50">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[transform,border-color] duration-200 motion-safe:hover:-translate-y-1 hover:border-accent/50">
       <div className="aspect-[3/2] w-full overflow-hidden bg-muted">
         <img
           src={meta.image}
@@ -155,12 +156,10 @@ export function Projects() {
         </p>
 
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {t.projects.items.map((entry) => (
-            <ProjectCard
-              key={entry.id}
-              entry={entry}
-              viewCodeLabel={t.projects.viewCode}
-            />
+          {t.projects.items.map((entry, index) => (
+            <Reveal key={entry.id} delay={(index % 2) * 80}>
+              <ProjectCard entry={entry} viewCodeLabel={t.projects.viewCode} />
+            </Reveal>
           ))}
         </div>
       </Container>

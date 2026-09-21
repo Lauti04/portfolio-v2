@@ -1,6 +1,7 @@
 import { IconCode, IconWorld } from '@tabler/icons-react'
 import type { ReactNode } from 'react'
 import { Container } from '@/components/ui/Container'
+import { Reveal } from '@/components/ui/Reveal'
 import { Section } from '@/components/ui/Section'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
@@ -68,7 +69,9 @@ export function Experience() {
 
         <div className="mt-6 flex flex-col">
           {t.experience.items.map((entry, index) => (
-            <ExperienceRow key={entry.id} entry={entry} isFirst={index === 0} />
+            <Reveal key={entry.id} delay={index * 80}>
+              <ExperienceRow entry={entry} isFirst={index === 0} />
+            </Reveal>
           ))}
         </div>
       </Container>

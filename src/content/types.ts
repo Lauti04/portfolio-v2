@@ -89,4 +89,9 @@ export interface Dictionary {
     copyPhone: string
     copied: string
   }
+  footer: {
+    github: string
+    linkedin: string
+    whatsapp: string
+  }
 }

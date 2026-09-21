@@ -115,4 +115,9 @@ export const es: Dictionary = {
     copyPhone: 'Copiar teléfono',
     copied: '¡Copiado!',
   },
+  footer: {
+    github: 'Perfil de GitHub',
+    linkedin: 'Perfil de LinkedIn',
+    whatsapp: 'WhatsApp',
+  },
 }
