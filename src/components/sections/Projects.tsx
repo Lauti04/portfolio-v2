@@ -1,38 +1,11 @@
-import {
-  IconBrandBootstrap,
-  IconBrandCss3,
-  IconBrandGithub,
-  IconBrandHtml5,
-  IconBrandJavascript,
-  IconBrandMysql,
-  IconBrandPhp,
-  IconBrandReact,
-  IconBrandTailwind,
-  type Icon,
-} from '@tabler/icons-react'
+import { IconBrandGithub } from '@tabler/icons-react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { Section } from '@/components/ui/Section'
+import { TECH_META } from '@/content/tech'
 import type { ProjectId } from '@/content/types'
 import { useI18n } from '@/features/i18n/i18n-context'
-
-interface TechMeta {
-  icon: Icon
-  color: string
-}
-
-/** Real per-technology brand colors — an intentional exception to the token-only rule. */
-const TECH: Record<string, TechMeta> = {
-  React: { icon: IconBrandReact, color: '#61dafb' },
-  JavaScript: { icon: IconBrandJavascript, color: '#f7df1e' },
-  PHP: { icon: IconBrandPhp, color: '#777bb4' },
-  MySQL: { icon: IconBrandMysql, color: '#00758f' },
-  'Tailwind CSS': { icon: IconBrandTailwind, color: '#38bdf8' },
-  Bootstrap: { icon: IconBrandBootstrap, color: '#7952b3' },
-  HTML: { icon: IconBrandHtml5, color: '#e34f26' },
-  CSS: { icon: IconBrandCss3, color: '#1572b6' },
-}
 
 interface ProjectMeta {
   image: string
@@ -73,7 +46,7 @@ interface ProjectEntry {
 
 /** A small tech chip with the technology's own brand-colored icon. */
 function TechChip({ name }: { name: string }) {
-  const meta = TECH[name]
+  const meta = TECH_META[name]
   const Icon = meta?.icon
 
   return (

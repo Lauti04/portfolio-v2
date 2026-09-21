@@ -23,6 +23,9 @@ export const en: Dictionary = {
     cvPreview: 'Preview',
     cvDownload: 'Download',
   },
+  techMarquee: {
+    caption: 'Tools and technologies I work with',
+  },
   profile: {
     heading: 'Profile Snapshot',
     about:

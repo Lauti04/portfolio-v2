@@ -33,6 +33,9 @@ export interface Dictionary {
     cvPreview: string
     cvDownload: string
   }
+  techMarquee: {
+    caption: string
+  }
   profile: {
     heading: string
     about: string

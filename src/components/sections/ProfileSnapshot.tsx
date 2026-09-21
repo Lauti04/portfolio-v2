@@ -24,6 +24,7 @@ import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, WHATSAPP_URL } from '@/content/social-links'
+import { STACK } from '@/content/tech'
 import type { Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
@@ -32,19 +33,6 @@ const CV_FILES: Record<Locale, string> = {
   es: '/cv/lautaro-johnston-cv-es.pdf',
   en: '/cv/lautaro-johnston-cv-en.pdf',
 }
-
-const STACK = [
-  'React',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'PHP',
-  'SQL',
-  'Strapi',
-  'Git',
-  'Docker',
-  'Jira',
-]
 
 const linkClasses =
   'link-underline inline-flex items-center gap-1.5 text-sm text-foreground'
