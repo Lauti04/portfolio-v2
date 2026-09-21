@@ -5,6 +5,7 @@ import { Section } from '@/components/ui/Section'
 import type { Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { useTheme } from '@/features/theme/theme-context'
+import { HeroCodeCard } from './HeroCodeCard'
 import { useCursorGlow } from './useCursorGlow'
 
 const CV_FILES: Record<Locale, string> = {
@@ -79,34 +80,44 @@ export function Hero() {
         isInteractive={isInteractive}
         isDark={theme === 'dark'}
       />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 top-1/4 hidden h-[420px] w-[420px] rounded-full bg-accent/20 blur-[100px] lg:block dark:bg-accent/25"
+      />
       <Container className="relative pt-24">
-        <div className="flex max-w-3xl flex-col items-start gap-6">
-          <p className="font-mono text-sm text-muted-foreground">
-            {t.hero.eyebrow}
-          </p>
-          <h1
-            id="hero-heading"
-            className="text-balance text-[clamp(2.5rem,5vw+1rem,5.25rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground"
-          >
-            {t.hero.headline}
-          </h1>
-          <StatusChip label={t.hero.status} />
-          <p className="max-w-[60ch] text-lg text-muted-foreground">
-            {t.hero.subline}
-          </p>
-          <div className="flex flex-wrap items-center gap-3 pt-2">
-            <Button href="#projects" size="md" variant="primary">
-              {t.hero.viewWork}
-            </Button>
-            <Button
-              href={CV_FILES[locale]}
-              target="_blank"
-              rel="noopener noreferrer"
-              size="md"
-              variant="outline"
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
+          <div className="flex max-w-3xl flex-col items-start gap-6">
+            <p className="font-mono text-sm text-muted-foreground">
+              {t.hero.eyebrow}
+            </p>
+            <h1
+              id="hero-heading"
+              className="text-balance text-[clamp(2.5rem,5vw+1rem,5.25rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-foreground"
             >
-              {t.hero.viewCv}
-            </Button>
+              {t.hero.headline}
+            </h1>
+            <StatusChip label={t.hero.status} />
+            <p className="max-w-[60ch] text-lg text-muted-foreground">
+              {t.hero.subline}
+            </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Button href="#projects" size="md" variant="primary">
+                {t.hero.viewWork}
+              </Button>
+              <Button
+                href={CV_FILES[locale]}
+                target="_blank"
+                rel="noopener noreferrer"
+                size="md"
+                variant="outline"
+              >
+                {t.hero.viewCv}
+              </Button>
+            </div>
+          </div>
+
+          <div className="hidden justify-self-center lg:block">
+            <HeroCodeCard />
           </div>
         </div>
       </Container>
