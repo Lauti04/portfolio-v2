@@ -17,16 +17,27 @@ import {
   IconBrandTailwind,
   IconBrandTypescript,
   IconBrandVscode,
-  type Icon,
 } from '@tabler/icons-react'
+import SiCursor from '@icons-pack/react-simple-icons/icons/SiCursor'
+import SiExpress from '@icons-pack/react-simple-icons/icons/SiExpress'
+import SiOpenjdk from '@icons-pack/react-simple-icons/icons/SiOpenjdk'
+import SiPostgresql from '@icons-pack/react-simple-icons/icons/SiPostgresql'
+import SiSqlite from '@icons-pack/react-simple-icons/icons/SiSqlite'
+import SiStrapi from '@icons-pack/react-simple-icons/icons/SiStrapi'
+import type { ComponentType, CSSProperties } from 'react'
+
+/** Common shape both @tabler/icons-react and @icons-pack/react-simple-icons components satisfy. */
+type TechIconComponent = ComponentType<{
+  size?: number
+  className?: string
+  style?: CSSProperties
+  'aria-hidden'?: boolean | 'true' | 'false'
+}>
 
 export interface TechMeta {
-  /** Omitted for technologies without a dedicated brand icon — falls back to `initials`. */
-  icon?: Icon
-  /** Omitted for monochrome brands (GitHub, Cursor, Express) — inherits the badge's text color. */
+  icon: TechIconComponent
+  /** Omitted for monochrome brands (GitHub, Cursor, Express, OpenJDK, SQLite) — inherits the badge's text color. */
   color?: string
-  /** Shown as a small monogram tile when `icon` is omitted. */
-  initials?: string
 }
 
 /** Real per-technology brand colors — an intentional exception to the token-only rule. */
@@ -39,13 +50,13 @@ export const TECH_META: Record<string, TechMeta> = {
   'Tailwind CSS': { icon: IconBrandTailwind, color: '#38bdf8' },
   Bootstrap: { icon: IconBrandBootstrap, color: '#7952b3' },
   'Node.js': { icon: IconBrandNodejs, color: '#5fa04e' },
-  Express: { initials: 'Ex' },
+  Express: { icon: SiExpress },
   PHP: { icon: IconBrandPhp, color: '#777bb4' },
-  Java: { initials: 'Jv', color: '#f89820' },
-  Strapi: { initials: 'St', color: '#4945ff' },
+  Java: { icon: SiOpenjdk },
+  Strapi: { icon: SiStrapi, color: '#4945ff' },
   MySQL: { icon: IconBrandMysql, color: '#00758f' },
-  PostgreSQL: { initials: 'Pg', color: '#336791' },
-  SQLite: { initials: 'Sq', color: '#0f80cc' },
+  PostgreSQL: { icon: SiPostgresql, color: '#4169e1' },
+  SQLite: { icon: SiSqlite },
   MongoDB: { icon: IconBrandMongodb, color: '#47a248' },
   Git: { icon: IconBrandGit, color: '#f05032' },
   GitHub: { icon: IconBrandGithub },
@@ -53,7 +64,7 @@ export const TECH_META: Record<string, TechMeta> = {
   Docker: { icon: IconBrandDocker, color: '#2496ed' },
   Jira: { icon: IconBrandJira, color: '#0052cc' },
   'VS Code': { icon: IconBrandVscode, color: '#007acc' },
-  Cursor: { initials: 'Cu' },
+  Cursor: { icon: SiCursor },
   ChatGPT: { icon: IconBrandOpenai, color: '#10a37f' },
 }
 

@@ -1,35 +1,21 @@
 import { Container } from '@/components/ui/Container'
 import { MARQUEE_STACK, TECH_META } from '@/content/tech'
 import { useI18n } from '@/features/i18n/i18n-context'
-import { cn } from '@/lib/cn'
 
-/** One badge in the marquee: brand icon, or a colored monogram tile when we have no icon. */
+/** One badge in the marquee: real brand icon plus label. */
 function TechBadge({ name }: { name: string }) {
   const meta = TECH_META[name]
   const Icon = meta?.icon
 
   return (
-    <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground">
-      {Icon ? (
+    <span className="inline-flex shrink-0 items-center gap-2.5 rounded-full border border-border bg-card px-5 py-3 text-base text-foreground">
+      {Icon && (
         <Icon
-          size={18}
+          size={24}
           className="shrink-0"
           style={meta.color ? { color: meta.color } : undefined}
           aria-hidden="true"
         />
-      ) : (
-        meta && (
-          <span
-            aria-hidden="true"
-            className={cn(
-              'flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border text-[9px] font-bold leading-none',
-              !meta.color && 'border-border text-foreground',
-            )}
-            style={meta.color ? { color: meta.color, borderColor: meta.color } : undefined}
-          >
-            {meta.initials}
-          </span>
-        )
       )}
       {name}
     </span>
@@ -39,7 +25,7 @@ function TechBadge({ name }: { name: string }) {
 /** One un-clipped copy of the badge list; `hidden` marks it as a decorative loop duplicate. */
 function TechGroup({ hidden }: { hidden?: boolean }) {
   return (
-    <div className="flex shrink-0 gap-3" aria-hidden={hidden}>
+    <div className="flex shrink-0 gap-4" aria-hidden={hidden}>
       {MARQUEE_STACK.map((name) => (
         <TechBadge key={name} name={name} />
       ))}
@@ -67,7 +53,7 @@ export function TechMarquee() {
       </Container>
 
       <div className="mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
           <TechGroup />
           <TechGroup hidden />
           <TechGroup hidden />
