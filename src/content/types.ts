@@ -81,4 +81,12 @@ export interface Dictionary {
       description: string
     }[]
   }
+  contact: {
+    heading: string
+    subheading: string
+    whatsapp: string
+    copyEmail: string
+    copyPhone: string
+    copied: string
+  }
 }

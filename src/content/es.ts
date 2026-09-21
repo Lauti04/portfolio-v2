@@ -107,4 +107,12 @@ export const es: Dictionary = {
       },
     ],
   },
+  contact: {
+    heading: '¿Trabajamos juntos?',
+    subheading: 'Abierto a puestos full-time y proyectos freelance.',
+    whatsapp: 'WhatsApp',
+    copyEmail: 'Copiar email',
+    copyPhone: 'Copiar teléfono',
+    copied: '¡Copiado!',
+  },
 }

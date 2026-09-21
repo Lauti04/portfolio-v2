@@ -107,4 +107,12 @@ export const en: Dictionary = {
       },
     ],
   },
+  contact: {
+    heading: "Let's work together",
+    subheading: 'Open to full-time roles and freelance projects.',
+    whatsapp: 'WhatsApp',
+    copyEmail: 'Copy email',
+    copyPhone: 'Copy phone',
+    copied: 'Copied!',
+  },
 }

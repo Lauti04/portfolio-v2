@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
+import { Contact } from '@/components/sections/Contact'
 import { Experience } from '@/components/sections/Experience'
 import { Hero } from '@/components/sections/Hero'
 import { ProfileSnapshot } from '@/components/sections/ProfileSnapshot'
@@ -26,6 +27,7 @@ function Shell() {
           <ProfileSnapshot />
           <Experience />
           <Projects />
+          <Contact />
         </main>
         <Footer />
       </div>
