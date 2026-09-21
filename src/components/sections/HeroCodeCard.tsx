@@ -3,7 +3,7 @@ import { useInView } from '@/hooks/useInView'
 import { useTypewriter } from '@/hooks/useTypewriter'
 import { cn } from '@/lib/cn'
 
-type TokenTone = 'keyword' | 'plain' | 'key' | 'punct' | 'string'
+type TokenTone = 'keyword' | 'plain' | 'key' | 'punct' | 'string' | 'comment'
 
 interface CodeToken {
   text: string
@@ -16,10 +16,12 @@ const TONE_CLASSES: Record<TokenTone, string> = {
   key: 'text-foreground',
   punct: 'text-muted-foreground',
   string: 'text-[#e2a256]',
+  comment: 'italic text-muted-foreground/70',
 }
 
 /** A small, honest "whoami" snippet — real facts about Lautaro, not project code. */
 const CODE_LINES: CodeToken[][] = [
+  [{ text: '// Made in Córdoba, Argentina', tone: 'comment' }],
   [
     { text: 'const ', tone: 'keyword' },
     { text: 'developer', tone: 'plain' },
@@ -57,7 +59,9 @@ const CODE_LINES: CodeToken[][] = [
   ],
   [
     { text: '    "Node.js"', tone: 'string' },
+    { text: ',', tone: 'punct' },
   ],
+  [{ text: '    // ...and more ↓', tone: 'comment' }],
   [{ text: '  ],', tone: 'punct' }],
   [
     { text: '  openToWork', tone: 'key' },
@@ -114,11 +118,11 @@ export function HeroCodeCard() {
     <div ref={ref} aria-hidden="true" className="[perspective:1400px]">
       <div
         className={cn(
-          'w-full max-w-md rounded-2xl border border-border bg-card shadow-xl transition-transform duration-500 ease-out',
+          'w-full max-w-lg rounded-2xl border border-border bg-card shadow-xl transition-transform duration-500 ease-out',
           '[transform:rotate3d(1,-1,0,10deg)] hover:[transform:rotate3d(0,0,0,0deg)]',
         )}
       >
-        <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
+        <div className="flex items-center gap-1.5 border-b border-border px-5 py-3.5">
           <span className="h-2.5 w-2.5 rounded-full bg-muted" />
           <span className="h-2.5 w-2.5 rounded-full bg-muted" />
           <span className="h-2.5 w-2.5 rounded-full bg-muted" />
@@ -126,7 +130,7 @@ export function HeroCodeCard() {
             whoami.ts
           </span>
         </div>
-        <pre className="overflow-x-auto p-5 font-mono text-sm leading-relaxed">
+        <pre className="overflow-x-auto p-6 font-mono text-sm leading-loose">
           <code>
             {CODE_LINES.map((tokens, index) => {
               const isCurrentLine = index === lastTypingLine

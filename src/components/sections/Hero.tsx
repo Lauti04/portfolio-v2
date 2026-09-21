@@ -85,7 +85,7 @@ export function Hero() {
         className="pointer-events-none absolute -right-24 top-1/4 hidden h-[420px] w-[420px] rounded-full bg-accent/20 blur-[100px] lg:block dark:bg-accent/25"
       />
       <Container className="relative pt-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)]">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)]">
           <div className="flex max-w-3xl flex-col items-start gap-6">
             <p className="font-mono text-sm text-muted-foreground">
               {t.hero.eyebrow}
@@ -116,7 +116,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hidden justify-self-center lg:block">
+          <div className="hidden lg:block">
             <HeroCodeCard />
           </div>
         </div>
