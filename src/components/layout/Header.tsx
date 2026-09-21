@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { Container } from '@/components/ui/Container'
+import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
 import { LanguageToggle } from './LanguageToggle'
 import { ThemeToggle } from './ThemeToggle'
+
+const NAV_LINK_CLASSES =
+  'link-underline text-sm text-muted-foreground transition-colors hover:text-foreground'
 
 /** Hides the header on scroll-down, reveals it on scroll-up or near the top. */
 function useScrollHeader() {
@@ -39,6 +43,7 @@ function useScrollHeader() {
 
 export function Header() {
   const { visible, scrolled, prefersReducedMotion } = useScrollHeader()
+  const { t } = useI18n()
 
   return (
     <header
@@ -60,6 +65,20 @@ export function Header() {
           >
             Lautaro Johnston
           </a>
+          <nav aria-label={t.nav.label} className="hidden items-center gap-6 md:flex">
+            <a href="#about" className={NAV_LINK_CLASSES}>
+              {t.nav.about}
+            </a>
+            <a href="#experience" className={NAV_LINK_CLASSES}>
+              {t.nav.experience}
+            </a>
+            <a href="#projects" className={NAV_LINK_CLASSES}>
+              {t.nav.projects}
+            </a>
+            <a href="#contact" className={NAV_LINK_CLASSES}>
+              {t.nav.contact}
+            </a>
+          </nav>
           <nav aria-label="Site controls" className="flex items-center gap-2">
             <LanguageToggle />
             <ThemeToggle />

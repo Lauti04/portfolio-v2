@@ -22,6 +22,13 @@ export interface Dictionary {
   language: {
     label: string
   }
+  nav: {
+    label: string
+    about: string
+    experience: string
+    projects: string
+    contact: string
+  }
   hero: {
     eyebrow: string
     headline: string

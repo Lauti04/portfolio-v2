@@ -11,6 +11,13 @@ export const es: Dictionary = {
   language: {
     label: 'Cambiar idioma',
   },
+  nav: {
+    label: 'Navegación de la página',
+    about: 'Sobre mí',
+    experience: 'Experiencia',
+    projects: 'Proyectos',
+    contact: 'Contacto',
+  },
   hero: {
     eyebrow: 'Desarrollador Full-Stack · React · TypeScript',
     headline: 'Construyo productos web limpios y rápidos.',
