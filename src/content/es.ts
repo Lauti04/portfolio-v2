@@ -116,6 +116,27 @@ export const es: Dictionary = {
       },
     ],
   },
+  strengths: {
+    heading: 'Lo que aporto',
+    subheading: 'Algunas cosas que no se ven en una lista de tecnologías.',
+    items: [
+      {
+        title: 'Aprendizaje rápido',
+        description:
+          'Pasé de la formación profesional a lanzar funcionalidades en producción en meses — me adapto rápido a nuevos stacks, herramientas y bases de código.',
+      },
+      {
+        title: 'Experiencia real en producción',
+        description:
+          'Interfaces, modo oscuro, componentes reutilizables y formularios en dos empresas — con tickets reales de Jira y revisión de código basada en Git, no proyectos personales sueltos.',
+      },
+      {
+        title: 'Desarrollo asistido por IA con criterio',
+        description:
+          'Cómodo usando herramientas como Cursor y ChatGPT para ir más rápido — pero siempre con el criterio para decidir qué mantener, cuestionar o reescribir.',
+      },
+    ],
+  },
   contact: {
     heading: '¿Trabajamos juntos?',
     subheading: 'Abierto a puestos full-time y proyectos freelance.',

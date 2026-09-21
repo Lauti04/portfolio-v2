@@ -90,6 +90,14 @@ export interface Dictionary {
       description: string
     }[]
   }
+  strengths: {
+    heading: string
+    subheading: string
+    items: {
+      title: string
+      description: string
+    }[]
+  }
   contact: {
     heading: string
     subheading: string

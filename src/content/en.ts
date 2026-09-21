@@ -116,6 +116,27 @@ export const en: Dictionary = {
       },
     ],
   },
+  strengths: {
+    heading: 'What I Bring',
+    subheading: "A few things that don't show up in a tech-stack list.",
+    items: [
+      {
+        title: 'Fast learner',
+        description:
+          'Went from a bootcamp to shipping production features in months — comfortable picking up new stacks, tools and codebases quickly.',
+      },
+      {
+        title: 'Real production experience',
+        description:
+          'Shipped interfaces, dark mode, reusable components and forms across two companies — through real Jira tickets and Git-based code review, not solo side projects.',
+      },
+      {
+        title: 'Judgment-driven AI-assisted development',
+        description:
+          'Comfortable using tools like Cursor and ChatGPT to move faster — but always with the judgment to decide what to keep, question, or rewrite.',
+      },
+    ],
+  },
   contact: {
     heading: "Let's work together",
     subheading: 'Open to full-time roles and freelance projects.',

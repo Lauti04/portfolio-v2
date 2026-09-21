@@ -5,6 +5,7 @@ import { Experience } from '@/components/sections/Experience'
 import { Hero } from '@/components/sections/Hero'
 import { ProfileSnapshot } from '@/components/sections/ProfileSnapshot'
 import { Projects } from '@/components/sections/Projects'
+import { Strengths } from '@/components/sections/Strengths'
 import { TechMarquee } from '@/components/sections/TechMarquee'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { I18nProvider } from '@/features/i18n/I18nProvider'
@@ -30,6 +31,7 @@ function Shell() {
           <ProfileSnapshot />
           <Experience />
           <Projects />
+          <Strengths />
           <Contact />
         </main>
         <Footer />
