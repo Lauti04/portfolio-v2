@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Section'
 import { TECH_META } from '@/content/tech'
 import type { ProjectId } from '@/content/types'
 import { useI18n } from '@/features/i18n/i18n-context'
+import { useTilt } from '@/hooks/useTilt'
 
 interface ProjectMeta {
   image: string
@@ -66,9 +67,13 @@ function ProjectCard({
   viewCodeLabel: string
 }) {
   const meta = PROJECT_META[entry.id]
+  const { ref } = useTilt<HTMLElement>()
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[transform,border-color] duration-200 motion-safe:hover:-translate-y-1 hover:border-accent/50">
+    <article
+      ref={ref}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[translate,transform,border-color] duration-200 [transform:perspective(1000px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))] motion-safe:hover:-translate-y-1 hover:border-accent/50"
+    >
       <div className="aspect-[3/2] w-full overflow-hidden bg-muted">
         <img
           src={meta.image}
