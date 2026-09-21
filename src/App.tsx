@@ -8,12 +8,11 @@ import { Projects } from '@/components/sections/Projects'
 import { TechMarquee } from '@/components/sections/TechMarquee'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { I18nProvider } from '@/features/i18n/I18nProvider'
+import { SmoothScrollProvider } from '@/features/smooth-scroll/SmoothScrollProvider'
 import { ThemeProvider } from '@/features/theme/ThemeProvider'
-import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 function Shell() {
   const { t } = useI18n()
-  useSmoothScroll()
 
   return (
     <>
@@ -43,7 +42,9 @@ export default function App() {
   return (
     <ThemeProvider>
       <I18nProvider>
-        <Shell />
+        <SmoothScrollProvider>
+          <Shell />
+        </SmoothScrollProvider>
       </I18nProvider>
     </ThemeProvider>
   )
