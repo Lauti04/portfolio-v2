@@ -7,6 +7,7 @@ import { TECH_META } from '@/content/tech'
 import type { ProjectId } from '@/content/types'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { useTilt } from '@/hooks/useTilt'
+import { cn } from '@/lib/cn'
 
 interface ProjectMeta {
   image: string
@@ -72,7 +73,12 @@ function ProjectCard({
   return (
     <article
       ref={ref}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-[translate,transform,border-color] duration-200 [transform:perspective(1000px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))] motion-safe:hover:-translate-y-1 hover:border-accent/50"
+      className={cn(
+        'group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card',
+        '[transform:perspective(1000px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))]',
+        '[transition:translate_200ms_ease-out,transform_var(--tilt-duration,0s)_ease-out,border-color_200ms_ease-out,box-shadow_200ms_ease-out]',
+        'motion-safe:hover:-translate-y-1 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/15',
+      )}
     >
       <div className="aspect-[3/2] w-full overflow-hidden bg-muted">
         <img
