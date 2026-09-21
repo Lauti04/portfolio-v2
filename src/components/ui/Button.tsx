@@ -18,7 +18,8 @@ type ButtonAsAnchor = ButtonOwnProps &
 type ButtonProps = ButtonAsButton | ButtonAsAnchor
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-accent text-accent-foreground hover:opacity-90',
+  primary:
+    'bg-accent text-accent-foreground hover:opacity-90 hover:shadow-lg hover:shadow-accent/30',
   secondary: 'bg-muted text-foreground hover:bg-border',
   ghost: 'bg-transparent text-foreground hover:bg-muted',
   outline:
@@ -38,7 +39,10 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors disabled:pointer-events-none disabled:opacity-50',
+    'inline-flex items-center justify-center gap-2 rounded-lg font-medium',
+    'transition-[translate,background-color,color,border-color,box-shadow,opacity] duration-200',
+    'motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-safe:active:duration-75',
+    'disabled:pointer-events-none disabled:opacity-50',
     variantClasses[variant],
     sizeClasses[size],
     className,
