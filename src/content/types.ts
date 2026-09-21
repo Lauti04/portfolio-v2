@@ -45,7 +45,6 @@ export interface Dictionary {
     educationValue: string
     languagesLabel: string
     languagesValue: string
-    stackLabel: string
     connectLabel: string
     contactModal: {
       heading: string

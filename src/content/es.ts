@@ -37,7 +37,6 @@ export const es: Dictionary = {
       'Técnico Superior — Desarrollo de Aplicaciones Web (DAW)',
     languagesLabel: 'Idiomas',
     languagesValue: 'Español (nativo) · Inglés (B2)',
-    stackLabel: 'Stack',
     connectLabel: 'Contacto',
     contactModal: {
       heading: 'Enviar un mensaje',

@@ -68,20 +68,6 @@ export const TECH_META: Record<string, TechMeta> = {
   ChatGPT: { icon: IconBrandOpenai, color: '#10a37f' },
 }
 
-/** Curated, compact list for the Profile Snapshot's "Stack" field. */
-export const STACK = [
-  'React',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'PHP',
-  'SQL',
-  'Strapi',
-  'Git',
-  'Docker',
-  'Jira',
-]
-
 /** Full real stack — from the CV's Technical Skills section — for the tech marquee. */
 export const MARQUEE_STACK = [
   'React',

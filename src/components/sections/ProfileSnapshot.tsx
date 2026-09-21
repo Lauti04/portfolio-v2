@@ -7,7 +7,6 @@ import {
   IconLanguage,
   IconMail,
   IconSchool,
-  IconStack2,
   IconX,
 } from '@tabler/icons-react'
 import {
@@ -24,7 +23,6 @@ import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, WHATSAPP_URL } from '@/content/social-links'
-import { STACK } from '@/content/tech'
 import type { Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
@@ -42,13 +40,15 @@ function SnapshotField({
   icon,
   label,
   children,
+  className,
 }: {
   icon: ReactNode
   label: string
   children: ReactNode
+  className?: string
 }) {
   return (
-    <div className="p-6">
+    <div className={cn('p-6', className)}>
       <p className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-muted-foreground">
         {icon}
         {label}
@@ -353,18 +353,13 @@ export function ProfileSnapshot() {
             />
           </div>
 
-          <div className="grid grid-cols-1 divide-y divide-border border-t border-border sm:grid-cols-2 sm:divide-x sm:divide-y-0 md:border-l md:border-t-0">
+          <div className="grid grid-cols-1 border-t border-border sm:grid-cols-2 md:border-l md:border-t-0">
             <SnapshotField
               icon={<IconBriefcase size={16} className="shrink-0" />}
               label={t.profile.roleLabel}
+              className="border-b border-border sm:border-r sm:border-b-0"
             >
               {t.profile.roleValue}
-            </SnapshotField>
-            <SnapshotField
-              icon={<IconSchool size={16} className="shrink-0" />}
-              label={t.profile.educationLabel}
-            >
-              {t.profile.educationValue}
             </SnapshotField>
             <SnapshotField
               icon={<IconLanguage size={16} className="shrink-0" />}
@@ -373,19 +368,11 @@ export function ProfileSnapshot() {
               {t.profile.languagesValue}
             </SnapshotField>
             <SnapshotField
-              icon={<IconStack2 size={16} className="shrink-0" />}
-              label={t.profile.stackLabel}
+              icon={<IconSchool size={16} className="shrink-0" />}
+              label={t.profile.educationLabel}
+              className="border-t border-border sm:col-span-2"
             >
-              <div className="flex flex-wrap gap-2">
-                {STACK.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-md border border-border bg-muted px-2 py-1 text-xs text-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
+              {t.profile.educationValue}
             </SnapshotField>
           </div>
         </div>
