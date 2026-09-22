@@ -1,18 +1,28 @@
 import { IconCheck, IconChevronDown } from '@tabler/icons-react'
-import { useEffect, useRef, useState } from 'react'
+import ES from 'country-flag-icons/react/3x2/ES'
+import GB from 'country-flag-icons/react/3x2/GB'
+import { useEffect, useRef, useState, type ComponentType } from 'react'
 import { locales, type Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
 
-const FLAGS: Record<Locale, string> = {
-  es: '🇪🇸',
-  en: '🇬🇧',
+/** Common shape both flag components accept — sidesteps their internal HTMLSVGElement type. */
+type FlagComponent = ComponentType<{
+  className?: string
+  'aria-hidden'?: boolean | 'true' | 'false'
+}>
+
+const FLAGS: Record<Locale, FlagComponent> = {
+  es: ES,
+  en: GB,
 }
 
 const NAMES: Record<Locale, string> = {
   es: 'Español',
   en: 'English',
 }
+
+const flagClasses = 'h-3.5 w-5 shrink-0 rounded-[3px] object-cover shadow-sm'
 
 /** Flag-and-chevron trigger opening an animated listbox of both languages. */
 export function LanguageToggle() {
@@ -45,6 +55,8 @@ export function LanguageToggle() {
     setIsOpen(false)
   }
 
+  const CurrentFlag = FLAGS[locale]
+
   return (
     <div ref={containerRef} className="relative">
       <button
@@ -55,9 +67,7 @@ export function LanguageToggle() {
         aria-label={t.language.label}
         className="inline-flex h-10 items-center gap-1.5 rounded-lg px-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
       >
-        <span aria-hidden="true" className="text-base leading-none">
-          {FLAGS[locale]}
-        </span>
+        <CurrentFlag aria-hidden="true" className={flagClasses} />
         <IconChevronDown
           size={14}
           className={cn(
@@ -77,6 +87,7 @@ export function LanguageToggle() {
       >
         {locales.map((code) => {
           const active = code === locale
+          const Flag = FLAGS[code]
           return (
             <button
               key={code}
@@ -91,9 +102,7 @@ export function LanguageToggle() {
                   : 'text-muted-foreground hover:bg-muted hover:text-foreground',
               )}
             >
-              <span aria-hidden="true" className="text-base leading-none">
-                {FLAGS[code]}
-              </span>
+              <Flag aria-hidden="true" className={flagClasses} />
               {NAMES[code]}
               {active && <IconCheck size={14} className="ml-auto text-accent" />}
             </button>
