@@ -150,6 +150,13 @@ function ScrollPinnedStrengths({
   const activeIndex = Math.min(items.length - 1, Math.floor(progress * items.length))
   const rotateY = (progress - 0.5) * 20
 
+  /** Heading "releases" over the first third of the scroll — sticks below the header like the card, then drifts up and fades as it's carried off by the scroll, leaving the card cycling through its items alone rather than staying glued in place for the whole 280vh. */
+  const headingRelease = Math.min(1, progress / 0.35)
+  const headingStyle = {
+    opacity: 1 - headingRelease,
+    translate: `0 ${(-headingRelease * 28).toFixed(1)}px`,
+  }
+
   const jumpToIndex = (index: number) => {
     const wrapper = ref.current
     if (!lenis || !wrapper) return
@@ -163,20 +170,22 @@ function ScrollPinnedStrengths({
   return (
     <div ref={ref} className="relative h-[280vh]">
       <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col gap-8 py-6">
-        <Container>
-          <Reveal>
-            <div className="flex items-center gap-2">
-              <span aria-hidden="true" className="h-0.5 w-2.5 rounded-full bg-accent" />
-              <h2
-                id="strengths-heading"
-                className="text-2xl font-semibold tracking-tight text-foreground"
-              >
-                {heading}
-              </h2>
-            </div>
-            <p className="mt-3 max-w-[60ch] text-muted-foreground">{subheading}</p>
-          </Reveal>
-        </Container>
+        <div style={headingStyle}>
+          <Container>
+            <Reveal>
+              <div className="flex items-center gap-2">
+                <span aria-hidden="true" className="h-0.5 w-2.5 rounded-full bg-accent" />
+                <h2
+                  id="strengths-heading"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
+                >
+                  {heading}
+                </h2>
+              </div>
+              <p className="mt-3 max-w-[60ch] text-muted-foreground">{subheading}</p>
+            </Reveal>
+          </Container>
+        </div>
 
         <Container className="flex flex-1 items-center [perspective:1600px]">
           <div className="grid w-full items-center gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
