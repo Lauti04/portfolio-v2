@@ -120,6 +120,7 @@ export const es: Dictionary = {
   strengths: {
     heading: 'Lo que aporto',
     subheading: 'Algunas cosas que no se ven en una lista de tecnologías.',
+    reviewedLabel: 'Revisado',
     items: [
       {
         title: 'Aprendizaje rápido',

@@ -94,6 +94,7 @@ export interface Dictionary {
   strengths: {
     heading: string
     subheading: string
+    reviewedLabel: string
     items: {
       title: string
       description: string

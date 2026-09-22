@@ -119,6 +119,7 @@ export const fr: Dictionary = {
   strengths: {
     heading: "Ce que j'apporte",
     subheading: "Quelques qualités qu'on ne voit pas dans une liste de technologies.",
+    reviewedLabel: 'Vérifié',
     items: [
       {
         title: 'Apprentissage rapide',

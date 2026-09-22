@@ -119,6 +119,7 @@ export const de: Dictionary = {
   strengths: {
     heading: 'Was ich mitbringe',
     subheading: 'Ein paar Dinge, die in keiner Tech-Stack-Liste stehen.',
+    reviewedLabel: 'Geprüft',
     items: [
       {
         title: 'Schnell lernfähig',

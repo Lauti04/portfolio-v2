@@ -120,6 +120,7 @@ export const ca: Dictionary = {
   strengths: {
     heading: 'Què aporto',
     subheading: 'Algunes coses que no es veuen en una llista de tecnologies.',
+    reviewedLabel: 'Revisat',
     items: [
       {
         title: 'Aprenentatge ràpid',

@@ -119,6 +119,7 @@ export const nl: Dictionary = {
   strengths: {
     heading: 'Wat ik meebreng',
     subheading: 'Een paar dingen die niet in een technologielijst staan.',
+    reviewedLabel: 'Gecontroleerd',
     items: [
       {
         title: 'Snelle leerling',

@@ -120,6 +120,7 @@ export const en: Dictionary = {
   strengths: {
     heading: 'What I Bring',
     subheading: "A few things that don't show up in a tech-stack list.",
+    reviewedLabel: 'Reviewed',
     items: [
       {
         title: 'Fast learner',
