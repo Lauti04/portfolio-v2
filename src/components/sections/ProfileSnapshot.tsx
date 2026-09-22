@@ -22,15 +22,10 @@ import { IconLinkedin } from '@/components/icons/IconLinkedin'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
+import { CV_FILES } from '@/content/cv-files'
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, WHATSAPP_URL } from '@/content/social-links'
-import type { Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { cn } from '@/lib/cn'
-
-const CV_FILES: Record<Locale, string> = {
-  es: '/cv/lautaro-johnston-cv-es.pdf',
-  en: '/cv/lautaro-johnston-cv-en.pdf',
-}
 
 const COURSERA_VERIFY_URL = 'https://coursera.org/verify/TU4DG6M18C4G'
 

@@ -1,6 +1,12 @@
 import { IconCheck, IconChevronDown } from '@tabler/icons-react'
+import CA from 'country-flag-icons/react/3x2/ES-CT'
+import DE from 'country-flag-icons/react/3x2/DE'
 import ES from 'country-flag-icons/react/3x2/ES'
+import FR from 'country-flag-icons/react/3x2/FR'
 import GB from 'country-flag-icons/react/3x2/GB'
+import IT from 'country-flag-icons/react/3x2/IT'
+import NL from 'country-flag-icons/react/3x2/NL'
+import PT from 'country-flag-icons/react/3x2/PT'
 import { useEffect, useRef, useState, type ComponentType } from 'react'
 import { locales, type Locale } from '@/features/i18n/config'
 import { useI18n } from '@/features/i18n/i18n-context'
@@ -15,11 +21,23 @@ type FlagComponent = ComponentType<{
 const FLAGS: Record<Locale, FlagComponent> = {
   es: ES,
   en: GB,
+  fr: FR,
+  de: DE,
+  pt: PT,
+  it: IT,
+  nl: NL,
+  ca: CA,
 }
 
 const NAMES: Record<Locale, string> = {
   es: 'Español',
   en: 'English',
+  fr: 'Français',
+  de: 'Deutsch',
+  pt: 'Português',
+  it: 'Italiano',
+  nl: 'Nederlands',
+  ca: 'Català',
 }
 
 const flagClasses = 'h-3.5 w-5 shrink-0 rounded-[3px] object-cover shadow-sm'
@@ -81,7 +99,7 @@ export function LanguageToggle() {
         role="listbox"
         aria-label={t.language.label}
         className={cn(
-          'absolute right-0 top-full z-50 mt-2 w-40 origin-top-right rounded-xl border border-border bg-card p-1.5 shadow-xl transition-[opacity,scale] duration-150 ease-out',
+          'absolute right-0 top-full z-50 mt-2 max-h-80 w-44 origin-top-right overflow-y-auto rounded-xl border border-border bg-card p-1.5 shadow-xl transition-[opacity,scale] duration-150 ease-out',
           isOpen ? 'scale-100 opacity-100' : 'pointer-events-none scale-95 opacity-0',
         )}
       >

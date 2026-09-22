@@ -2,16 +2,11 @@ import type { RefObject } from 'react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Section } from '@/components/ui/Section'
-import type { Locale } from '@/features/i18n/config'
+import { CV_FILES } from '@/content/cv-files'
 import { useI18n } from '@/features/i18n/i18n-context'
 import { useTheme } from '@/features/theme/theme-context'
 import { HeroCodeCard } from './HeroCodeCard'
 import { useCursorGlow } from './useCursorGlow'
-
-const CV_FILES: Record<Locale, string> = {
-  es: '/cv/lautaro-johnston-cv-es.pdf',
-  en: '/cv/lautaro-johnston-cv-en.pdf',
-}
 
 /** Accent pill announcing current availability, with a reduced-motion-aware pulse. */
 function StatusChip({ label }: { label: string }) {
