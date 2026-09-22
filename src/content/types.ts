@@ -50,6 +50,7 @@ export interface Dictionary {
     roleValue: string
     educationLabel: string
     educationValue: string
+    certificationValue: string
     languagesLabel: string
     languagesValue: string
     connectLabel: string

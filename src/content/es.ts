@@ -42,6 +42,7 @@ export const es: Dictionary = {
     educationLabel: 'Educación',
     educationValue:
       'Técnico Superior — Desarrollo de Aplicaciones Web (DAW)',
+    certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Idiomas',
     languagesValue: 'Español (nativo) · Inglés (B2)',
     connectLabel: 'Contacto',

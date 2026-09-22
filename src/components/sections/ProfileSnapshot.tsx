@@ -32,6 +32,8 @@ const CV_FILES: Record<Locale, string> = {
   en: '/cv/lautaro-johnston-cv-en.pdf',
 }
 
+const COURSERA_VERIFY_URL = 'https://coursera.org/verify/TU4DG6M18C4G'
+
 const linkClasses =
   'link-underline inline-flex items-center gap-1.5 text-sm text-foreground'
 
@@ -372,7 +374,15 @@ export function ProfileSnapshot() {
               label={t.profile.educationLabel}
               className="border-t border-border sm:col-span-2"
             >
-              {t.profile.educationValue}
+              <p>{t.profile.educationValue}</p>
+              <a
+                href={COURSERA_VERIFY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline mt-1 inline-block text-muted-foreground"
+              >
+                {t.profile.certificationValue}
+              </a>
             </SnapshotField>
           </div>
         </div>
