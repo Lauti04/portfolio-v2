@@ -3,6 +3,7 @@ import {
   IconBrandWhatsapp,
   IconBriefcase,
   IconDownload,
+  IconExternalLink,
   IconEye,
   IconLanguage,
   IconMail,
@@ -374,9 +375,10 @@ export function ProfileSnapshot() {
                 href={COURSERA_VERIFY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-underline mt-1 inline-block text-muted-foreground"
+                className="link-underline mt-1 inline-flex items-center gap-1.5 text-muted-foreground"
               >
                 {t.profile.certificationValue}
+                <IconExternalLink size={14} className="shrink-0" aria-hidden="true" />
               </a>
             </SnapshotField>
           </div>

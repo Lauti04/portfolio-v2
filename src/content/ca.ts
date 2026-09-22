@@ -41,10 +41,10 @@ export const ca: Dictionary = {
     roleValue: 'Desenvolupador Full-Stack Júnior — VyA Projects',
     educationLabel: 'Educació',
     educationValue:
-      "Cicle Formatiu de Grau Superior — Desenvolupament d'Aplicacions Web (DAW)",
+      "Cicle Formatiu de Grau Superior — Desenvolupament d'Aplicacions Web (DAW), DigitechFP",
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Idiomes',
-    languagesValue: 'Espanyol (natiu) · Anglès (B2)',
+    languagesValue: 'Espanyol (natiu) · Anglès (B2, certificat Cambridge)',
     connectLabel: 'Contacte',
     contactModal: {
       heading: 'Enviar un missatge',
@@ -135,7 +135,7 @@ export const ca: Dictionary = {
       {
         title: 'Desenvolupament assistit per IA amb criteri',
         description:
-          'Còmode fent servir eines com Cursor i ChatGPT per anar més ràpid — però sempre amb el criteri per decidir què mantenir, qüestionar o reescriure.',
+          'Còmode fent servir eines com Cursor, ChatGPT, Claude i Gemini per anar més ràpid — però sempre amb el criteri per decidir què mantenir, qüestionar o reescriure.',
       },
     ],
   },

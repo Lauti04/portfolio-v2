@@ -1,5 +1,8 @@
 import { IconBrandOpenai, IconCheck } from '@tabler/icons-react'
+import SiClaude from '@icons-pack/react-simple-icons/icons/SiClaude'
 import SiCursor from '@icons-pack/react-simple-icons/icons/SiCursor'
+import SiGooglegemini from '@icons-pack/react-simple-icons/icons/SiGooglegemini'
+import type { CSSProperties, ReactNode } from 'react'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
 import { useI18n } from '@/features/i18n/i18n-context'
@@ -15,10 +18,17 @@ interface StrengthItem {
 
 const TAB_LABELS = ['timeline.log', 'shipped.tsx', 'review.ai']
 
+/** Shared styling for each strength's inner graphic — the hover (lift + subtle zoom + accent glow) lives here, scoped to just this box, not the whole tab card around it. */
+const VISUAL_CLASSES = cn(
+  'rounded-xl border border-border bg-muted/40 p-4',
+  'transition-[translate,scale,border-color,box-shadow] duration-300 ease-out',
+  'hover:-translate-y-1 hover:scale-[1.02] hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10',
+)
+
 /** Terminal-style log for "fast learner" — mirrors the hero card's monospace aesthetic. */
 function TimelineVisual() {
   return (
-    <div className="rounded-xl border border-border bg-muted/40 p-4 font-mono text-xs leading-relaxed sm:text-sm">
+    <div className={cn(VISUAL_CLASSES, 'font-mono text-xs leading-relaxed sm:text-sm')}>
       <p className="text-muted-foreground">
         <span className="text-accent">$</span> career --log
       </p>
@@ -41,7 +51,7 @@ const SHIPPED_ITEMS = ['Interfaces', 'Dark mode', 'Reusable components', 'Forms'
 /** Toggle-row checklist for "real production experience" — daisyUI-style feature list. */
 function ShippedVisual() {
   return (
-    <div className="flex flex-col gap-2.5 rounded-xl border border-border bg-muted/40 p-4">
+    <div className={cn(VISUAL_CLASSES, 'flex flex-col gap-2.5')}>
       {SHIPPED_ITEMS.map((label) => (
         <div key={label} className="flex items-center justify-between text-sm">
           <span className="text-foreground">{label}</span>
@@ -60,9 +70,11 @@ function ShippedVisual() {
 /** Real tool icons + a "reviewed" badge for the AI-judgment strength. */
 function AiJudgmentVisual({ reviewedLabel }: { reviewedLabel: string }) {
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-border bg-muted/40 p-4">
-      <SiCursor size={28} aria-hidden="true" />
-      <IconBrandOpenai size={28} style={{ color: '#10a37f' }} aria-hidden="true" />
+    <div className={cn(VISUAL_CLASSES, 'flex flex-wrap items-center gap-4')}>
+      <SiCursor size={26} aria-hidden="true" />
+      <IconBrandOpenai size={26} style={{ color: '#10a37f' }} aria-hidden="true" />
+      <SiClaude size={26} style={{ color: '#d97757' }} aria-hidden="true" />
+      <SiGooglegemini size={26} style={{ color: '#8e75b2' }} aria-hidden="true" />
       <span className="ml-auto flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">
         <IconCheck size={14} aria-hidden="true" />
         {reviewedLabel}
@@ -77,6 +89,34 @@ function StrengthVisual({ index, reviewedLabel }: { index: number; reviewedLabel
   return <AiJudgmentVisual reviewedLabel={reviewedLabel} />
 }
 
+/** macOS-style window chrome (dots + file label) wrapping a strength's visual + description. Shared by the desktop pinned card and the mobile stacked cards so neither loses the "code editor tab" look. */
+function TabCardChrome({
+  tabLabel,
+  children,
+  className,
+  style,
+}: {
+  tabLabel: string
+  children: ReactNode
+  className?: string
+  style?: CSSProperties
+}) {
+  return (
+    <div
+      className={cn('relative w-full rounded-3xl border border-border bg-card shadow-2xl', className)}
+      style={style}
+    >
+      <div className="flex items-center gap-1.5 border-b border-border px-5 py-3.5">
+        <span className="h-2.5 w-2.5 rounded-full bg-muted" />
+        <span className="h-2.5 w-2.5 rounded-full bg-muted" />
+        <span className="h-2.5 w-2.5 rounded-full bg-muted" />
+        <span className="ml-2 font-mono text-xs text-muted-foreground">{tabLabel}</span>
+      </div>
+      <div className="p-8 sm:p-10">{children}</div>
+    </div>
+  )
+}
+
 /**
  * Tall wrapper (280vh) around a sticky-pinned block: the heading, a synced
  * index of the 3 strength titles on the left, and a bigger card on the
@@ -86,14 +126,13 @@ function StrengthVisual({ index, reviewedLabel }: { index: number; reviewedLabel
  * real description text. Everything stays pinned together while the user
  * scrolls through the wrapper's extra height — including the heading, so it
  * stays readable the whole time instead of scrolling away before the
- * interactive part even starts. The card slowly rotates and the active
- * strength swaps as scroll progress crosses each third, and lifts slightly
- * on hover (translate/scale only — never `transform`, which is what the
- * scroll-driven rotation animates, so a hover transition on it would fight
- * the rotation the same way the project-card tilt lag did earlier). No
- * animation library — same hand-rolled scroll-math idiom already used
- * elsewhere in the codebase (and what daisyUI's own site turned out to use
- * for a similar effect).
+ * interactive part even starts. The card slowly rotates as scroll progress
+ * crosses each third; the tab card itself has no hover effect (only the
+ * inner visual box does, via `VISUAL_CLASSES`) so a hover transition never
+ * fights the scroll-driven `rotateY`, the same lag bug the project-card tilt
+ * hit earlier. No animation library — same hand-rolled scroll-math idiom
+ * already used elsewhere in the codebase (and what daisyUI's own site turned
+ * out to use for a similar effect).
  */
 function ScrollPinnedStrengths({
   items,
@@ -179,56 +218,38 @@ function ScrollPinnedStrengths({
                 className="absolute -bottom-8 -left-6 h-24 w-24 rounded-full bg-accent/15 blur-2xl motion-safe:animate-float-delayed"
               />
 
-              <div
-                className={cn(
-                  'relative w-full rounded-3xl border border-border bg-card shadow-2xl',
-                  'transition-[scale,translate,box-shadow] duration-300 ease-out',
-                  'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-accent/20',
-                )}
-                style={{ transform: `rotateY(${rotateY}deg)` }}
-              >
-                <div className="flex items-center gap-1.5 border-b border-border px-5 py-3.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-muted" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-muted" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-muted" />
-                  <span className="ml-2 font-mono text-xs text-muted-foreground">
-                    {TAB_LABELS[activeIndex]}
-                  </span>
+              <TabCardChrome tabLabel={TAB_LABELS[activeIndex]} style={{ transform: `rotateY(${rotateY}deg)` }}>
+                <div className="relative min-h-[260px] sm:min-h-[220px]">
+                  {items.map((item, index) => (
+                    <div
+                      key={item.title}
+                      className={cn(
+                        'transition-opacity duration-500',
+                        index === activeIndex
+                          ? 'relative opacity-100'
+                          : 'absolute inset-0 opacity-0',
+                      )}
+                    >
+                      <StrengthVisual index={index} reviewedLabel={reviewedLabel} />
+                      <p className="mt-6 max-w-[46ch] text-lg text-foreground sm:text-xl">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-
-                <div className="p-8 sm:p-10">
-                  <div className="relative min-h-[260px] sm:min-h-[220px]">
-                    {items.map((item, index) => (
-                      <div
-                        key={item.title}
-                        className={cn(
-                          'transition-opacity duration-500',
-                          index === activeIndex
-                            ? 'relative opacity-100'
-                            : 'absolute inset-0 opacity-0',
-                        )}
-                      >
-                        <StrengthVisual index={index} reviewedLabel={reviewedLabel} />
-                        <p className="mt-6 max-w-[46ch] text-lg text-foreground sm:text-xl">
-                          {item.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8 flex gap-2">
-                    {items.map((item, index) => (
-                      <span
-                        key={item.title}
-                        aria-hidden="true"
-                        className={cn(
-                          'h-1.5 w-6 rounded-full transition-colors duration-300',
-                          index === activeIndex ? 'bg-accent' : 'bg-border',
-                        )}
-                      />
-                    ))}
-                  </div>
+                <div className="mt-8 flex gap-2">
+                  {items.map((item, index) => (
+                    <span
+                      key={item.title}
+                      aria-hidden="true"
+                      className={cn(
+                        'h-1.5 w-6 rounded-full transition-colors duration-300',
+                        index === activeIndex ? 'bg-accent' : 'bg-border',
+                      )}
+                    />
+                  ))}
                 </div>
-              </div>
+              </TabCardChrome>
             </div>
           </div>
         </Container>
@@ -237,24 +258,37 @@ function ScrollPinnedStrengths({
   )
 }
 
-/** One label/value pair for the mobile/reduced-motion fallback. */
-function StrengthCard({ item, index }: { item: StrengthItem; index: number }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-8">
-      <span className="font-mono text-sm text-accent">0{index + 1}</span>
-      <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground">{item.title}</h3>
-      <p className="mt-4 max-w-[46ch] text-muted-foreground">{item.description}</p>
-    </div>
-  )
-}
-
-/** Plain stacked cards — used on mobile/tablet and under reduced motion, where a pinned-scroll effect is disorienting rather than delightful. */
-function SimpleStrengths({ items }: { items: StrengthItem[] }) {
+/**
+ * Mobile/tablet and reduced-motion fallback — a pinned-scroll effect is
+ * disorienting rather than delightful there, and 3D perspective rotation
+ * doesn't translate well to touch input, so it's dropped entirely. The
+ * tab-card look (macOS chrome + real visual graphic) is kept and just
+ * stacked in a plain flex column instead, so the section doesn't lose its
+ * personality on smaller screens.
+ */
+function StackedStrengths({
+  items,
+  reviewedLabel,
+}: {
+  items: StrengthItem[]
+  reviewedLabel: string
+}) {
   return (
     <div className="flex flex-col gap-6">
       {items.map((item, index) => (
         <Reveal key={item.title} delay={index * 80}>
-          <StrengthCard item={item} index={index} />
+          <div className="flex flex-col gap-3">
+            <div className="flex items-baseline gap-3 px-1">
+              <span className="font-mono text-sm text-accent">0{index + 1}</span>
+              <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                {item.title}
+              </h3>
+            </div>
+            <TabCardChrome tabLabel={TAB_LABELS[index]}>
+              <StrengthVisual index={index} reviewedLabel={reviewedLabel} />
+              <p className="mt-6 text-base text-foreground">{item.description}</p>
+            </TabCardChrome>
+          </div>
         </Reveal>
       ))}
     </div>
@@ -297,7 +331,7 @@ export function Strengths() {
             </Reveal>
           </Container>
           <Container className="mt-8">
-            <SimpleStrengths items={t.strengths.items} />
+            <StackedStrengths items={t.strengths.items} reviewedLabel={t.strengths.reviewedLabel} />
           </Container>
         </>
       )}

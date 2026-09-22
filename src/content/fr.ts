@@ -40,10 +40,10 @@ export const fr: Dictionary = {
     roleLabel: 'Poste',
     roleValue: 'Développeur Full-Stack Junior — VyA Projects',
     educationLabel: 'Formation',
-    educationValue: "BTS — Développement d'Applications Web (DAW)",
+    educationValue: "BTS — Développement d'Applications Web (DAW), DigitechFP",
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Langues',
-    languagesValue: 'Espagnol (natif) · Anglais (B2)',
+    languagesValue: 'Espagnol (natif) · Anglais (B2, certifié Cambridge)',
     connectLabel: 'Contact',
     contactModal: {
       heading: 'Envoyer un message',
@@ -134,7 +134,7 @@ export const fr: Dictionary = {
       {
         title: 'Développement assisté par IA, avec discernement',
         description:
-          'À l\'aise avec des outils comme Cursor et ChatGPT pour aller plus vite — mais toujours avec le discernement nécessaire pour décider quoi garder, remettre en question ou réécrire.',
+          'À l\'aise avec des outils comme Cursor, ChatGPT, Claude et Gemini pour aller plus vite — mais toujours avec le discernement nécessaire pour décider quoi garder, remettre en question ou réécrire.',
       },
     ],
   },

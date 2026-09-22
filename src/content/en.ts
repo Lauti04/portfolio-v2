@@ -41,10 +41,10 @@ export const en: Dictionary = {
     roleValue: 'Junior Full-Stack Developer — VyA Projects',
     educationLabel: 'Education',
     educationValue:
-      'Higher Technician Degree — Web Application Development (DAW)',
+      'Higher Technician Degree — Web Application Development (DAW), DigitechFP',
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Languages',
-    languagesValue: 'Spanish (native) · English (B2)',
+    languagesValue: 'Spanish (native) · English (B2, Cambridge certified)',
     connectLabel: 'Connect',
     contactModal: {
       heading: 'Send a message',
@@ -135,7 +135,7 @@ export const en: Dictionary = {
       {
         title: 'Judgment-driven AI-assisted development',
         description:
-          'Comfortable using tools like Cursor and ChatGPT to move faster — but always with the judgment to decide what to keep, question, or rewrite.',
+          'Comfortable using tools like Cursor, ChatGPT, Claude and Gemini to move faster — but always with the judgment to decide what to keep, question, or rewrite.',
       },
     ],
   },

@@ -40,10 +40,10 @@ export const de: Dictionary = {
     roleLabel: 'Rolle',
     roleValue: 'Junior Full-Stack-Entwickler — VyA Projects',
     educationLabel: 'Ausbildung',
-    educationValue: 'Höhere Fachausbildung — Webanwendungsentwicklung (DAW)',
+    educationValue: 'Höhere Fachausbildung — Webanwendungsentwicklung (DAW), DigitechFP',
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Sprachen',
-    languagesValue: 'Spanisch (Muttersprache) · Englisch (B2)',
+    languagesValue: 'Spanisch (Muttersprache) · Englisch (B2, Cambridge-zertifiziert)',
     connectLabel: 'Kontakt',
     contactModal: {
       heading: 'Nachricht senden',
@@ -134,7 +134,7 @@ export const de: Dictionary = {
       {
         title: 'KI-gestützte Entwicklung mit Urteilsvermögen',
         description:
-          'Sicher im Umgang mit Tools wie Cursor und ChatGPT, um schneller voranzukommen — aber immer mit dem Urteilsvermögen zu entscheiden, was beibehalten, hinterfragt oder neu geschrieben wird.',
+          'Sicher im Umgang mit Tools wie Cursor, ChatGPT, Claude und Gemini, um schneller voranzukommen — aber immer mit dem Urteilsvermögen zu entscheiden, was beibehalten, hinterfragt oder neu geschrieben wird.',
       },
     ],
   },

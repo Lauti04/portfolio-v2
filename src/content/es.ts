@@ -41,10 +41,10 @@ export const es: Dictionary = {
     roleValue: 'Desarrollador Full-Stack Junior — VyA Projects',
     educationLabel: 'Educación',
     educationValue:
-      'Técnico Superior — Desarrollo de Aplicaciones Web (DAW)',
+      'Técnico Superior — Desarrollo de Aplicaciones Web (DAW), DigitechFP',
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Idiomas',
-    languagesValue: 'Español (nativo) · Inglés (B2)',
+    languagesValue: 'Español (nativo) · Inglés (B2, certificado Cambridge)',
     connectLabel: 'Contacto',
     contactModal: {
       heading: 'Enviar un mensaje',
@@ -135,7 +135,7 @@ export const es: Dictionary = {
       {
         title: 'Desarrollo asistido por IA con criterio',
         description:
-          'Cómodo usando herramientas como Cursor y ChatGPT para ir más rápido — pero siempre con el criterio para decidir qué mantener, cuestionar o reescribir.',
+          'Cómodo usando herramientas como Cursor, ChatGPT, Claude y Gemini para ir más rápido — pero siempre con el criterio para decidir qué mantener, cuestionar o reescribir.',
       },
     ],
   },

@@ -18,8 +18,10 @@ import {
   IconBrandTypescript,
   IconBrandVscode,
 } from '@tabler/icons-react'
+import SiClaude from '@icons-pack/react-simple-icons/icons/SiClaude'
 import SiCursor from '@icons-pack/react-simple-icons/icons/SiCursor'
 import SiExpress from '@icons-pack/react-simple-icons/icons/SiExpress'
+import SiGooglegemini from '@icons-pack/react-simple-icons/icons/SiGooglegemini'
 import SiOpenjdk from '@icons-pack/react-simple-icons/icons/SiOpenjdk'
 import SiPostgresql from '@icons-pack/react-simple-icons/icons/SiPostgresql'
 import SiSqlite from '@icons-pack/react-simple-icons/icons/SiSqlite'
@@ -66,6 +68,8 @@ export const TECH_META: Record<string, TechMeta> = {
   'VS Code': { icon: IconBrandVscode, color: '#007acc' },
   Cursor: { icon: SiCursor },
   ChatGPT: { icon: IconBrandOpenai, color: '#10a37f' },
+  Claude: { icon: SiClaude, color: '#d97757' },
+  Gemini: { icon: SiGooglegemini, color: '#8e75b2' },
 }
 
 /** Full real stack — from the CV's Technical Skills section — for the tech marquee. */
@@ -94,4 +98,6 @@ export const MARQUEE_STACK = [
   'VS Code',
   'Cursor',
   'ChatGPT',
+  'Claude',
+  'Gemini',
 ]

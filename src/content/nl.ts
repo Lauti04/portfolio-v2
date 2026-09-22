@@ -40,10 +40,10 @@ export const nl: Dictionary = {
     roleLabel: 'Functie',
     roleValue: 'Junior Full-Stack Developer — VyA Projects',
     educationLabel: 'Opleiding',
-    educationValue: 'Hbo-diploma — Webapplicatieontwikkeling (DAW)',
+    educationValue: 'Hbo-diploma — Webapplicatieontwikkeling (DAW), DigitechFP',
     certificationValue: 'AI Fundamentals — Google (Coursera)',
     languagesLabel: 'Talen',
-    languagesValue: 'Spaans (moedertaal) · Engels (B2)',
+    languagesValue: 'Spaans (moedertaal) · Engels (B2, Cambridge-gecertificeerd)',
     connectLabel: 'Contact',
     contactModal: {
       heading: 'Stuur een bericht',
@@ -134,7 +134,7 @@ export const nl: Dictionary = {
       {
         title: 'AI-ondersteunde ontwikkeling met beoordelingsvermogen',
         description:
-          'Comfortabel met tools als Cursor en ChatGPT om sneller te werken — maar altijd met het beoordelingsvermogen om te bepalen wat te behouden, ter discussie te stellen of te herschrijven.',
+          'Comfortabel met tools als Cursor, ChatGPT, Claude en Gemini om sneller te werken — maar altijd met het beoordelingsvermogen om te bepalen wat te behouden, ter discussie te stellen of te herschrijven.',
       },
     ],
   },
