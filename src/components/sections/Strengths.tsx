@@ -227,7 +227,7 @@ function ScrollPinnedStrengths({
                         'transition-opacity duration-500',
                         index === activeIndex
                           ? 'relative opacity-100'
-                          : 'absolute inset-0 opacity-0',
+                          : 'pointer-events-none absolute inset-0 opacity-0',
                       )}
                     >
                       <StrengthVisual index={index} reviewedLabel={reviewedLabel} />

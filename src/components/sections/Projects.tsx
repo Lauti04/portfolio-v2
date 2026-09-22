@@ -68,16 +68,15 @@ function ProjectCard({
   viewCodeLabel: string
 }) {
   const meta = PROJECT_META[entry.id]
-  const { ref } = useTilt<HTMLElement>()
+  const { ref, isInteractive } = useTilt<HTMLElement>()
 
   return (
     <article
       ref={ref}
       className={cn(
         'group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card',
-        '[transform:perspective(1000px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))]',
-        '[transition:translate_200ms_ease-out,transform_var(--tilt-duration,0s)_ease-out,border-color_200ms_ease-out,box-shadow_200ms_ease-out]',
-        'motion-safe:hover:-translate-y-1 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/15',
+        isInteractive &&
+          '[transform:perspective(1000px)_rotateX(var(--tilt-x,0deg))_rotateY(var(--tilt-y,0deg))] [transition:translate_200ms_ease-out,transform_var(--tilt-duration,0s)_ease-out,border-color_200ms_ease-out,box-shadow_200ms_ease-out] hover:-translate-y-1 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/15',
       )}
     >
       <div className="aspect-[3/2] w-full overflow-hidden bg-muted">
@@ -88,7 +87,10 @@ function ProjectCard({
           decoding="async"
           width={1200}
           height={800}
-          className="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.02]"
+          className={cn(
+            'h-full w-full object-cover transition-transform duration-300',
+            isInteractive && 'group-hover:scale-[1.02]',
+          )}
         />
       </div>
       <div className="flex flex-1 flex-col gap-4 p-6 sm:p-7">

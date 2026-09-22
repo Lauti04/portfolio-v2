@@ -28,6 +28,8 @@ export interface Dictionary {
     experience: string
     projects: string
     contact: string
+    openMenu: string
+    closeMenu: string
   }
   hero: {
     eyebrow: string

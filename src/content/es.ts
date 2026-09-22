@@ -17,6 +17,8 @@ export const es: Dictionary = {
     experience: 'Experiencia',
     projects: 'Proyectos',
     contact: 'Contacto',
+    openMenu: 'Abrir menú',
+    closeMenu: 'Cerrar menú',
   },
   hero: {
     eyebrow: 'Desarrollador Full-Stack · React · TypeScript',

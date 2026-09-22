@@ -91,6 +91,9 @@ export function Hero() {
             >
               {t.hero.headline}
             </h1>
+            <div className="w-full lg:hidden">
+              <HeroCodeCard />
+            </div>
             <StatusChip label={t.hero.status} />
             <p className="max-w-[60ch] text-lg text-muted-foreground">
               {t.hero.subline}
