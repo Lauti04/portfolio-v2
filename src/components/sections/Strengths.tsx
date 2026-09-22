@@ -78,15 +78,19 @@ function StrengthVisual({ index, reviewedLabel }: { index: number; reviewedLabel
 }
 
 /**
- * Tall wrapper (280vh) around a sticky-pinned two-column layout: a synced
- * index of the 3 strength titles on the left, a bigger card on the right
- * styled like a code editor tab (macOS window dots + a per-strength "file"
- * label) showing a distinct small graphic for whichever strength is active
- * — a terminal log, a toggle checklist, a tool-icon row — plus its real
- * description text. A couple of slow-floating blurred accents sit behind
- * the card for depth. Both columns stay pinned together while the user
- * scrolls through the wrapper's extra height; the card slowly rotates and
- * the active strength swaps as scroll progress crosses each third. No
+ * Tall wrapper (280vh) around a sticky-pinned block: the heading, a synced
+ * index of the 3 strength titles on the left, and a bigger card on the
+ * right styled like a code editor tab (macOS window dots + a per-strength
+ * "file" label) showing a distinct small graphic for whichever strength is
+ * active — a terminal log, a toggle checklist, a tool-icon row — plus its
+ * real description text. Everything stays pinned together while the user
+ * scrolls through the wrapper's extra height — including the heading, so it
+ * stays readable the whole time instead of scrolling away before the
+ * interactive part even starts. The card slowly rotates and the active
+ * strength swaps as scroll progress crosses each third, and lifts slightly
+ * on hover (translate/scale only — never `transform`, which is what the
+ * scroll-driven rotation animates, so a hover transition on it would fight
+ * the rotation the same way the project-card tilt lag did earlier). No
  * animation library — same hand-rolled scroll-math idiom already used
  * elsewhere in the codebase (and what daisyUI's own site turned out to use
  * for a similar effect).
@@ -94,9 +98,13 @@ function StrengthVisual({ index, reviewedLabel }: { index: number; reviewedLabel
 function ScrollPinnedStrengths({
   items,
   reviewedLabel,
+  heading,
+  subheading,
 }: {
   items: StrengthItem[]
   reviewedLabel: string
+  heading: string
+  subheading: string
 }) {
   const { ref, progress } = useScrollProgress<HTMLDivElement>()
   const lenis = useLenis()
@@ -115,9 +123,24 @@ function ScrollPinnedStrengths({
 
   return (
     <div ref={ref} className="relative h-[280vh]">
-      <div className="sticky top-20 flex h-[calc(100vh-5rem)] items-center [perspective:1600px]">
+      <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col gap-8 py-6">
         <Container>
-          <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
+          <Reveal>
+            <div className="flex items-center gap-2">
+              <span aria-hidden="true" className="h-0.5 w-2.5 rounded-full bg-accent" />
+              <h2
+                id="strengths-heading"
+                className="text-2xl font-semibold tracking-tight text-foreground"
+              >
+                {heading}
+              </h2>
+            </div>
+            <p className="mt-3 max-w-[60ch] text-muted-foreground">{subheading}</p>
+          </Reveal>
+        </Container>
+
+        <Container className="flex flex-1 items-center [perspective:1600px]">
+          <div className="grid w-full items-center gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-16">
             <div className="flex flex-col gap-2">
               {items.map((item, index) => (
                 <button
@@ -157,7 +180,11 @@ function ScrollPinnedStrengths({
               />
 
               <div
-                className="relative w-full rounded-3xl border border-border bg-card shadow-2xl"
+                className={cn(
+                  'relative w-full rounded-3xl border border-border bg-card shadow-2xl',
+                  'transition-[scale,translate,box-shadow] duration-300 ease-out',
+                  'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-accent/20',
+                )}
                 style={{ transform: `rotateY(${rotateY}deg)` }}
               >
                 <div className="flex items-center gap-1.5 border-b border-border px-5 py-3.5">
@@ -246,27 +273,33 @@ export function Strengths() {
       aria-labelledby="strengths-heading"
       className="relative scroll-mt-20 py-16 sm:py-24"
     >
-      <Container>
-        <Reveal>
-          <div className="flex items-center gap-2">
-            <span aria-hidden="true" className="h-0.5 w-2.5 rounded-full bg-accent" />
-            <h2
-              id="strengths-heading"
-              className="text-2xl font-semibold tracking-tight text-foreground"
-            >
-              {t.strengths.heading}
-            </h2>
-          </div>
-          <p className="mt-3 max-w-[60ch] text-muted-foreground">{t.strengths.subheading}</p>
-        </Reveal>
-      </Container>
-
       {useScrollPin ? (
-        <ScrollPinnedStrengths items={t.strengths.items} reviewedLabel={t.strengths.reviewedLabel} />
+        <ScrollPinnedStrengths
+          items={t.strengths.items}
+          reviewedLabel={t.strengths.reviewedLabel}
+          heading={t.strengths.heading}
+          subheading={t.strengths.subheading}
+        />
       ) : (
-        <Container className="mt-8">
-          <SimpleStrengths items={t.strengths.items} />
-        </Container>
+        <>
+          <Container>
+            <Reveal>
+              <div className="flex items-center gap-2">
+                <span aria-hidden="true" className="h-0.5 w-2.5 rounded-full bg-accent" />
+                <h2
+                  id="strengths-heading"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
+                >
+                  {t.strengths.heading}
+                </h2>
+              </div>
+              <p className="mt-3 max-w-[60ch] text-muted-foreground">{t.strengths.subheading}</p>
+            </Reveal>
+          </Container>
+          <Container className="mt-8">
+            <SimpleStrengths items={t.strengths.items} />
+          </Container>
+        </>
       )}
     </section>
   )
