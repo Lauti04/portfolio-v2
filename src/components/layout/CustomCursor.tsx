@@ -72,11 +72,14 @@ export function CustomCursor() {
       dot.classList.add('opacity-100')
       ring.classList.add('opacity-100')
 
-      const target = event.target as Element | null
-      const state = target?.closest(TEXT_SELECTOR)
-        ? 'text'
-        : target?.closest(INTERACTIVE_SELECTOR)
-          ? 'interactive'
+      const target = event.target
+      const state =
+        target instanceof Element
+          ? target.closest(TEXT_SELECTOR)
+            ? 'text'
+            : target.closest(INTERACTIVE_SELECTOR)
+              ? 'interactive'
+              : 'default'
           : 'default'
       ringInner.dataset.cursor = state
     }
