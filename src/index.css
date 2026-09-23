@@ -86,6 +86,12 @@
     outline-offset: 2px;
   }
 
+  /* Native cursor is hidden only while CustomCursor has actually mounted (fine pointer, no reduced-motion) and is drawing its own. */
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
