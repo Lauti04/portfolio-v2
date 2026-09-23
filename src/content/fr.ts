@@ -88,7 +88,7 @@ export const fr: Dictionary = {
     ],
   },
   projects: {
-    heading: 'Projets Sélectionnés',
+    heading: 'Projets sélectionnés',
     subheading: "Une sélection de projets full-stack, d'interfaces et d'expériences web.",
     viewCode: 'Voir le code',
     items: [

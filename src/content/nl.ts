@@ -88,7 +88,7 @@ export const nl: Dictionary = {
     ],
   },
   projects: {
-    heading: 'Uitgelichte Projecten',
+    heading: 'Uitgelichte projecten',
     subheading: 'Een selectie van full-stack projecten, interfaces en webervaringen.',
     viewCode: 'Bekijk code',
     items: [

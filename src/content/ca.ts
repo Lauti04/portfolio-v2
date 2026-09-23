@@ -89,7 +89,7 @@ export const ca: Dictionary = {
     ],
   },
   projects: {
-    heading: 'Projectes Seleccionats',
+    heading: 'Projectes seleccionats',
     subheading: 'Una selecció de projectes full-stack, interfícies i experiències web.',
     viewCode: 'Veure el codi',
     items: [
@@ -109,7 +109,7 @@ export const ca: Dictionary = {
         id: 'happyPaws',
         title: 'Happy Paws',
         description:
-          "Landing page frontend per a serveis d'animals, basada en una plantilla i adaptada amb HTML, CSS i JavaScript. Inclou eslàider, galeria, serveis, ofertes i contingut d'adopció.",
+          "Landing page frontend per a serveis d'animals, basada en una plantilla i adaptada amb HTML, CSS i JavaScript. Inclou slider, galeria, serveis, ofertes i contingut d'adopció.",
       },
       {
         id: 'malagaSupercars',
