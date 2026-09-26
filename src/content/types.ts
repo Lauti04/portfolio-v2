@@ -87,6 +87,8 @@ export interface Dictionary {
     heading: string
     subheading: string
     viewCode: string
+    viewDemo: string
+    demoNote: string
     items: {
       id: ProjectId
       title: string

@@ -1,4 +1,4 @@
-import { IconBrandGithub } from '@tabler/icons-react'
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react'
 import { Button } from '@/components/ui/Button'
 import { Container } from '@/components/ui/Container'
 import { Reveal } from '@/components/ui/Reveal'
@@ -9,9 +9,13 @@ import { useI18n } from '@/features/i18n/i18n-context'
 import { useTilt } from '@/hooks/useTilt'
 import { cn } from '@/lib/cn'
 
+/** All four demos are served by one container; each app lives under its own path. */
+const DEMO_BASE_URL = 'https://lautaro-demos.onrender.com'
+
 interface ProjectMeta {
   image: string
   githubUrl: string
+  demoUrl: string
   stack: string[]
 }
 
@@ -19,23 +23,27 @@ const PROJECT_META: Record<ProjectId, ProjectMeta> = {
   eventflow: {
     image: '/projects/eventflow-cover.webp',
     githubUrl: 'https://github.com/Lauti04/DAW/tree/master/Projects/EventFlow',
+    demoUrl: `${DEMO_BASE_URL}/eventflow/`,
     stack: ['PHP', 'MySQL', 'JavaScript', 'React', 'Tailwind CSS'],
   },
   dulceEncanto: {
     image: '/projects/dulce-encanto-cover.webp',
     githubUrl:
       'https://github.com/Lauti04/DAW/tree/master/Projects/ProyectoPasteleria',
+    demoUrl: `${DEMO_BASE_URL}/dulce-encanto/`,
     stack: ['PHP', 'MySQL', 'Bootstrap', 'JavaScript'],
   },
   happyPaws: {
     image: '/projects/happy-paws-cover.webp',
     githubUrl: 'https://github.com/Lauti04/DAW/tree/master/Projects/HappyPaws',
+    demoUrl: `${DEMO_BASE_URL}/happy-paws/`,
     stack: ['HTML', 'CSS', 'JavaScript'],
   },
   malagaSupercars: {
     image: '/projects/malaga-supercars-cover.webp',
     githubUrl:
       'https://github.com/Lauti04/DAW/tree/master/Projects/Examen%203%C2%BA%20evaluaci%C3%B3n',
+    demoUrl: `${DEMO_BASE_URL}/malaga-supercars/`,
     stack: ['HTML', 'CSS', 'PHP', 'MySQL'],
   },
 }
@@ -59,13 +67,15 @@ function TechChip({ name }: { name: string }) {
   )
 }
 
-/** One project card: cover image, title, description, tech chips, code link. */
+/** One project card: cover image, title, description, tech chips, live demo and code links. */
 function ProjectCard({
   entry,
   viewCodeLabel,
+  viewDemoLabel,
 }: {
   entry: ProjectEntry
   viewCodeLabel: string
+  viewDemoLabel: string
 }) {
   const meta = PROJECT_META[entry.id]
   const { ref, isInteractive } = useTilt<HTMLElement>()
@@ -105,18 +115,30 @@ function ProjectCard({
             <TechChip key={item} name={item} />
           ))}
         </div>
-        <Button
-          href={meta.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          size="sm"
-          variant="outline"
-          aria-label={`${viewCodeLabel}: ${entry.title}`}
-          className="mt-1 self-start"
-        >
-          <IconBrandGithub size={16} className="shrink-0" />
-          {viewCodeLabel}
-        </Button>
+        <div className="mt-1 flex flex-wrap gap-2">
+          <Button
+            href={meta.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+            variant="primary"
+            aria-label={`${viewDemoLabel}: ${entry.title}`}
+          >
+            <IconExternalLink size={16} className="shrink-0" />
+            {viewDemoLabel}
+          </Button>
+          <Button
+            href={meta.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+            variant="outline"
+            aria-label={`${viewCodeLabel}: ${entry.title}`}
+          >
+            <IconBrandGithub size={16} className="shrink-0" />
+            {viewCodeLabel}
+          </Button>
+        </div>
       </div>
     </article>
   )
@@ -144,10 +166,17 @@ export function Projects() {
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           {t.projects.items.map((entry, index) => (
             <Reveal key={entry.id} delay={(index % 2) * 80}>
-              <ProjectCard entry={entry} viewCodeLabel={t.projects.viewCode} />
+              <ProjectCard
+                entry={entry}
+                viewCodeLabel={t.projects.viewCode}
+                viewDemoLabel={t.projects.viewDemo}
+              />
             </Reveal>
           ))}
         </div>
+        <p className="mt-6 max-w-[70ch] text-sm text-muted-foreground">
+          {t.projects.demoNote}
+        </p>
       </Container>
     </Section>
   )

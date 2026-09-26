@@ -91,6 +91,9 @@ export const fr: Dictionary = {
     heading: 'Projets sélectionnés',
     subheading: "Une sélection de projets full-stack, d'interfaces et d'expériences web.",
     viewCode: 'Voir le code',
+    viewDemo: 'Voir la démo',
+    demoNote:
+      'Les démos tournent sur un hébergement gratuit : le premier chargement peut prendre jusqu\'à une minute et les données d\'exemple sont réinitialisées toutes les quelques heures.',
     items: [
       {
         id: 'eventflow',

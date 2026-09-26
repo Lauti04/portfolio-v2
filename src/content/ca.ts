@@ -92,6 +92,9 @@ export const ca: Dictionary = {
     heading: 'Projectes seleccionats',
     subheading: 'Una selecció de projectes full-stack, interfícies i experiències web.',
     viewCode: 'Veure el codi',
+    viewDemo: 'Veure la demo',
+    demoNote:
+      'Les demos funcionen en un allotjament gratuït: la primera càrrega pot trigar fins a un minut i les dades d\'exemple es restableixen cada poques hores.',
     items: [
       {
         id: 'eventflow',

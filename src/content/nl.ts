@@ -91,6 +91,9 @@ export const nl: Dictionary = {
     heading: 'Uitgelichte projecten',
     subheading: 'Een selectie van full-stack projecten, interfaces en webervaringen.',
     viewCode: 'Bekijk code',
+    viewDemo: 'Bekijk demo',
+    demoNote:
+      'De demo\'s draaien op gratis hosting: de eerste keer laden kan tot een minuut duren en de voorbeeldgegevens worden om de paar uur gereset.',
     items: [
       {
         id: 'eventflow',
